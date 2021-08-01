@@ -1,0 +1,9 @@
+// Guide
+1. Take a pull form the development branch every day befor start working
+	git pull origin development
+2. Create a branch accourding to the task
+	git branch development/<name>/<taskname>
+	git checkout development/<name>/<taskname>
+3. Push the branch when you complete the task
+	git push -u origin development/<name>/<taskname>
+4. Then create a merge request form the github to the development branch
