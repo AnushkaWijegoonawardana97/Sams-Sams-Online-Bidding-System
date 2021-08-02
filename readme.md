@@ -75,7 +75,6 @@
 
 [Laravel Guide](larvel.md)
 
-
 ## Contibution Guide
 
 -   Take a pull from the development branch
@@ -101,3 +100,4 @@
     ```
 
 -   then create the pull request to the development branch
+    <p align="left"><img src="guide.png" width="400"></p>
