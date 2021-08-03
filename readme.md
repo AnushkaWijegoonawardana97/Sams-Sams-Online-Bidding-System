@@ -91,7 +91,15 @@
     eg : development-anushka/project-setup-guide
     ```
 
--   Once you complete you tasks
+-   Checkout to the new branch
+
+    ```
+    git checkout <<branch-name>>
+    ```
+
+-   Development
+
+*   Once you complete you tasks
 
     ```
     git add * .
@@ -99,5 +107,5 @@
     git push -u origin <your-branch-name>
     ```
 
--   then create the pull request to the development branch
+*   then create the pull request to the development branch
     <p align="left"><img src="guide.png" width="400"></p>
