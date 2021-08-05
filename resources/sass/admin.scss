@@ -1,12 +1,11 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 //fontawesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
@@ -14,4 +13,4 @@
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 //adminlte
-@import '~admin-lte/dist/css/adminlte.min.css';
+@import "~admin-lte/dist/css/adminlte.min.css";

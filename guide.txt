@@ -1,0 +1,8 @@
+Dilshan Ramesh20:13
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan optimize:clear
+php artisan migrate
+
+Dilshan Ramesh20:14
+php artisan db:seed --class=AuthSeeder
+composer dump-autoload
