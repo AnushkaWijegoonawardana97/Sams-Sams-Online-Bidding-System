@@ -169,17 +169,7 @@
                 </div>
             </div>
 
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
@@ -216,6 +206,7 @@
                             <p>Product Category</p>
                         </a>
                     </li>
+                    
 
 
                 </ul>
@@ -245,10 +236,10 @@
     <footer class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-            Anything you want
+            
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2021 <a href="">{{config('app.name')}}</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2021 <a href="">Sams and Sams</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
