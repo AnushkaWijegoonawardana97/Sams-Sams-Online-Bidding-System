@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/landing.scss', 'public/css');
-mix.js('resources/js/app.js', 'public/js').sass('resources/sass/admin.scss', 'public/css');
+// CSS
+mix.sass("resources/sass/landing.scss", "public/css");
+mix.sass("resources/sass/admin.scss", "public/css");
+
+// JS
+mix.js("resources/js/app.js", "public/js");
+mix.js("resources/js/main.js", "public/js");

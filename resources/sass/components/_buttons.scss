@@ -1,0 +1,15 @@
+// <========== Page Header Navigation Styles ==========>
+.btn-theme-secondary {
+    min-width: 200px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 28px;
+    background-color: $primary-color;
+    color: $theme-white;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &:hover {
+        color: $theme-white;
+    }
+}
