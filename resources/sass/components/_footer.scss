@@ -1,0 +1,153 @@
+// <========== Page Footer Styles ==========>
+#page-footer {
+    width: 90%;
+    margin: auto;
+    padding: 4rem 2rem 1.5rem;
+
+    .footer-top-section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+
+        .footer-column {
+            .footer-about {
+                margin-bottom: 2rem;
+
+                .footer-about-branding {
+                    margin-bottom: 2rem;
+                    display: block;
+                }
+
+                .foooter-about-text {
+                    font-size: 16px;
+                    line-height: 32px;
+                    font-weight: 400;
+                    color: $theme-stcolor;
+
+                    p {
+                        margin: unset;
+                    }
+                }
+            }
+
+            .footer-social {
+                .footer-social-header {
+                    font-size: 18px;
+                    line-height: 24px;
+                    font-weight: 600;
+                    color: $theme-ftcolor;
+                    text-transform: capitalize;
+                    margin-bottom: 16px;
+                }
+
+                .footer-social-links {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    .footer-social-link {
+                        font-size: 32px;
+                        color: $theme-pblue;
+                        margin-right: 0.75rem;
+                    }
+                }
+            }
+
+            .footer-column-header {
+                font-size: 24px;
+                line-height: 32px;
+                color: $theme-pblue;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+            .footer-column-links {
+                .footer-link-item {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    color: $theme-ptcolor;
+                    font-weight: 400;
+                    text-decoration: none;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .footer-bottom-section {
+        border-top: 1px solid $theme-ttcolor;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        color: $theme-ttcolor;
+    }
+}
+@include respond-to(medium_lg) {
+    #page-footer {
+        padding: 4rem 1rem 1.5rem;
+
+        .footer-top-section {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+@include respond-to(small) {
+    #page-footer {
+        width: 100%;
+        padding: 2rem 1rem 1rem;
+
+        .footer-top-section {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+
+            .footer-column {
+                &:first-child {
+                    grid-column: 1/4;
+                }
+                .footer-about {
+                    margin-bottom: 1rem;
+                    text-align: center;
+
+                    .footer-about-branding {
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                .footer-social {
+                    .footer-social-header {
+                        font-size: 16px;
+                        line-height: 22px;
+                        text-align: center;
+                    }
+
+                    .footer-social-links {
+                        align-items: center;
+                        justify-content: center;
+
+                        .footer-social-link {
+                            font-size: 24px;
+                            margin: 0rem 0.5rem;
+                        }
+                    }
+                }
+
+                .footer-column-header {
+                    font-size: 18px;
+                    line-height: 26px;
+                    margin-bottom: 1rem;
+                }
+
+                .footer-column-links {
+                    .footer-link-item {
+                        font-size: 14pxrem;
+                        line-height: 1.25rem;
+                    }
+                }
+            }
+        }
+
+        .footer-bottom-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+    }
+}
