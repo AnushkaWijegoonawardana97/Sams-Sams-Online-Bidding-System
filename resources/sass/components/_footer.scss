@@ -98,7 +98,7 @@
         .footer-top-section {
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 2rem;
-
+    
             .footer-column {
                 &:first-child {
                     grid-column: 1/4;
