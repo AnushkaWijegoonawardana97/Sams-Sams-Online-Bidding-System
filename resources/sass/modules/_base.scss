@@ -1,4 +1,22 @@
 * {
     font-family: "Poppins", sans-serif;
 }
-    
+
+.mobile-only {
+    display: none;
+}
+@include respond-to(small) {
+    .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: block;
+    }
+}
+
+.btn,
+input {
+    &:focus {
+        box-shadow: none;
+    }
+}
