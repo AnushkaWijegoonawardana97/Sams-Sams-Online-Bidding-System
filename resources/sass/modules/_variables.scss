@@ -18,11 +18,49 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-// Theme Static Page Variables
+// <========== Theme Static Page Varibales ==========>
 $primary-color: #707070;
 $theme-white: #ffffff;
 $theme-pblue: #0654ae;
 $theme-sblue: #0099ff;
+$theme-tblue: #b1d6eb;
 $theme-ptcolor: #262626;
 $theme-stcolor: #414141;
 $theme-ttcolor: #707070;
+
+// <========== Theme Media Query Varibales ==========>
+$breakpoints: (
+    "exsmall_320": (
+        max-width: 330px
+    ),
+    "exsmall": (
+        max-width: 375px
+    ),
+    "exsmall_574": (
+        max-width: 574px
+    ),
+    "small": (
+        max-width: 767px
+    ),
+    "medium": (
+        max-width: 991px
+    ),
+    "medium_lg": (
+        max-width: 1026px
+    ),
+    "large": (
+        max-width: 1199px
+    ),
+    "ex_large_max": (
+        max-width: 1440px
+    ),
+    "min1440px": (
+        min-width: 1440px
+    ),
+    "ex_large": (
+        max-width: 1920px
+    ),
+    "min768": (
+        min-width: 768px
+    )
+) !default;

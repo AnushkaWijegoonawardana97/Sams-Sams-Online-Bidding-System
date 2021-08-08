@@ -5,3 +5,17 @@
  */
 
 require("./bootstrap");
+
+// Mobile Overlayer Navigation Function
+const openNavBtn = document.getElementById("mobile-opennav-button");
+const closeNavBtn = document.getElementById("mobile-closenav-button");
+const overlayerNav = document.getElementById("mobile-ovelayer-navigation");
+
+openNavBtn.onclick = function(e) {
+    e.preventDefault();
+    overlayerNav.style.width = "100%";
+};
+closeNavBtn.onclick = function(e) {
+    e.preventDefault();
+    overlayerNav.style.width = "0%";
+};
