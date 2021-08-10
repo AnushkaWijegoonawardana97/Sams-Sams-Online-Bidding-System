@@ -94,6 +94,9 @@ input {
 }
 .primary-section-padding {
     padding: 6rem 2rem;
+    &-notop {
+        padding-top: 0px;
+    }
 }
 
 @include respond-to(medium_lg) {

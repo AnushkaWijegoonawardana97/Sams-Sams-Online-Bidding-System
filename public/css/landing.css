@@ -17169,6 +17169,10 @@ input:focus {
   padding: 6rem 2rem;
 }
 
+.primary-section-padding-notop {
+  padding-top: 0px;
+}
+
 @media (max-width: 1026px) {
   .primary-section-padding {
     padding: 6rem 1rem;
