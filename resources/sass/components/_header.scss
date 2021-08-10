@@ -125,7 +125,32 @@
         }
     }
 }
+@include respond-to(medium_lg) {
+    #page-header-navigation {
+        .top-header-nav {
+            padding: 1rem 0rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
+            .navbar-brand {
+                margin-right: 2rem;
+            }
+
+            .navbar-nav {
+                display: none;
+            }
+        }
+
+        .bottom-header-nav {
+            padding: 1rem 0rem;
+
+            .search-bar {
+                width: 50%;
+            }
+        }
+    }
+}
 @include respond-to(small) {
     #page-header-navigation {
         width: 100%;
