@@ -1,0 +1,228 @@
+// <========== Auth Page Container Styles ==========>
+.auth-form-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: black;
+}
+
+.auth-form-container {
+    width: 50%;
+    height: auto;
+    margin-left: 50%;
+
+    .auth-form-inner {
+        width: 60%;
+        margin: 5rem auto;
+
+        .auth-form-nav {
+            margin-bottom: 4rem;
+        }
+
+        .auth-form-header {
+            .auth-header-title {
+                font-size: 42px;
+                line-height: 68px;
+                color: $theme-ptcolor;
+                margin-bottom: 0rem;
+            }
+
+            .auth-header-subtitle {
+                font-size: 32px;
+                line-height: 48px;
+                color: $theme-ptcolor;
+                margin-bottom: 0rem;
+            }
+
+            .auth-header-test {
+                font-size: 18px;
+                line-height: 24px;
+                color: $theme-stcolor;
+                margin-bottom: 3rem;
+            }
+        }
+
+        .auth-footer {
+            margin-top: 2rem;
+
+            .auth-footer-text {
+                padding-bottom: 0px;
+                font-size: 1rem;
+                line-height: 18px;
+                font-weight: 400;
+
+                .login-link {
+                    font-weight: 600;
+                    color: $theme-pblue;
+                    text-decoration: none;
+                    &:hover {
+                        color: $theme-sblue;
+                    }
+                }
+            }
+        }
+    }
+}
+@include respond-to(ex_large_max) {
+    .auth-form-container {
+        .auth-form-inner {
+            margin: 3rem auto;
+
+            .auth-form-nav {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+@include respond-to(medium_lg) {
+    .auth-form-banner {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .auth-form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $theme-lwhite;
+        width: 90%;
+        height: 90%;
+        margin: 0px;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .auth-form-inner {
+            width: 60%;
+
+            .auth-form-nav {
+                text-align: center;
+            }
+
+            .auth-form-header {
+                text-align: center;
+            }
+        }
+    }
+}
+@include respond-to(small) {
+    .auth-form-banner {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .auth-form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $theme-lwhite;
+        width: 90%;
+        height: 90%;
+        margin: 0px;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .auth-form-inner {
+            width: 90%;
+            margin: 1rem auto;
+
+            .auth-form-nav {
+                margin-bottom: 1.5rem;
+                img {
+                    width: 100px;
+                    height: auto;
+                }
+            }
+
+            .auth-form-header {
+                .auth-header-title {
+                    font-size: 24px;
+                    line-height: 34px;
+                }
+
+                .auth-header-subtitle {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+
+                .auth-header-test {
+                    font-size: 14px;
+                    line-height: 16px;
+                    margin-bottom: 1.5rem;
+                }
+            }
+
+            .auth-footer {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+// <========== Auth Page Form Styles ==========>
+form {
+    .form-group {
+        label {
+            color: $theme-ttcolor;
+            font-weight: 500;
+        }
+
+        .form-control {
+            &:focus {
+                box-shadow: none;
+                border-color: $theme-sblue;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .form-check {
+        margin: 1.5rem 0px;
+    }
+}
+@include respond-to(small) {
+    form {
+        .form-group {
+            label {
+                font-size: 1rem;
+            }
+
+            .form-control {
+                font-size: 14px;
+            }
+        }
+
+        .form-check {
+            margin: 1rem 0px;
+        }
+    }
+}
+
+// <========== Auth Page Button & Link Styles ==========>
+.btn-primary {
+    background-color: $theme-pblue;
+    color: $theme-lwhite;
+    border-color: $theme-pblue;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    &:hover {
+        background-color: $theme-sblue;
+        color: $theme-white;
+        border-color: $theme-sblue;
+    }
+}
+@include respond-to(small) {
+    .btn-primary {
+        padding: 0.35rem;
+        font-size: 1rem;
+    }
+}
