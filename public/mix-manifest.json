@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/landing.css": "/css/landing.css",
     "/css/admin.css": "/css/admin.css",
+    "/css/authpage.css": "/css/authpage.css",
     "/js/main.js": "/js/main.js"
 }

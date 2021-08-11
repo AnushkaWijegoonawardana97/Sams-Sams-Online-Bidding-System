@@ -22,6 +22,14 @@ Route::get('faq', 'LandingPageController@faqPage')->name('landing.faq');
 
 Auth::routes();
 
+// Login Flow Tempary Routes
+Route::get('newlogin', 'AuthPageController@loginPage')->name('auth.login');
+Route::get('registration', 'AuthPageController@register')->name('auth.register');
+Route::get('forgot_password', 'AuthPageController@passwordReset')->name('auth.passwordReset');
+Route::get('seller_registration', 'AuthPageController@sellerRegistration')->name('auth.sellerRegistration');
+Route::get('buyer_registration', 'AuthPageController@buyerRegistration')->name('auth.buyerRegistration');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin routes
