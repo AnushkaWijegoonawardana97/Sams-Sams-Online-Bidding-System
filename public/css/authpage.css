@@ -17263,6 +17263,16 @@ input:focus {
   .auth-form-container .auth-form-inner .auth-form-nav {
     margin-bottom: 2rem;
   }
+
+  .auth-form-container .auth-form-inner .auth-form-header .auth-header-title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .auth-form-container .auth-form-inner .auth-form-header .auth-header-subtitle {
+    font-size: 28px;
+    line-height: 40px;
+  }
 }
 
 @media (max-width: 1026px) {
@@ -17404,6 +17414,67 @@ form .form-check {
   .btn-primary {
     padding: 0.35rem;
     font-size: 1rem;
+  }
+}
+
+#register-form-container .register-button-container {
+  margin-bottom: 3rem;
+}
+
+#register-form-container .register-button-container .registration-btn {
+  width: 40%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#register-form-container .register-button-container .registration-btn:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#register-form-container .register-button-container .registration-btn .register-btn-link {
+  padding: 1rem;
+}
+
+#register-form-container .register-button-container .registration-btn .register-btn-link .registration-icon {
+  width: 100%;
+  height: auto;
+}
+
+#register-form-container .register-button-container .registration-btn .registration-text-btn {
+  border-color: #0654ae;
+  color: #0654ae;
+  font-weight: 500;
+}
+
+#register-form-container .register-button-container .registration-btn .registration-text-btn:hover {
+  background-color: #0654ae;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+#register-form-container .register-button-container .registration-btn .registration-text-btn:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 767px) {
+  #register-form-container .register-button-container {
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+
+  #register-form-container .register-button-container .registration-btn {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #register-form-container .register-button-container .registration-btn .register-btn-link {
+    padding: 0rem;
+  }
+
+  #register-form-container .register-button-container .registration-btn .register-btn-link .registration-icon {
+    display: none;
   }
 }
 
