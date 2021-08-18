@@ -17417,6 +17417,51 @@ form .form-check {
   }
 }
 
+.register-form-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100vh;
+  background-color: black;
+}
+
+.register-form-container {
+  width: 60%;
+  height: auto;
+  margin-left: 40%;
+}
+
+.register-form-container .register-form-inner {
+  width: 80%;
+  margin: 5rem auto;
+}
+
+.register-form-container .register-form-inner .register-form-nav {
+  margin-bottom: 4rem;
+}
+
+.register-form-container .register-form-inner .register-footer {
+  margin-top: 2rem;
+}
+
+.register-form-container .register-form-inner .register-footer .register-footer-text {
+  padding-bottom: 0px;
+  font-size: 1rem;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.register-form-container .register-form-inner .register-footer .register-footer-text .login-link {
+  font-weight: 600;
+  color: #0654ae;
+  text-decoration: none;
+}
+
+.register-form-container .register-form-inner .register-footer .register-footer-text .login-link:hover {
+  color: #0099ff;
+}
+
 #register-form-container .register-button-container {
   margin-bottom: 3rem;
 }
