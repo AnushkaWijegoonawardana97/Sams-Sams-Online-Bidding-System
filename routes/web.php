@@ -47,4 +47,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/update/{id}', 'Admin\ProductCategoryController@update')->name('product_category.update');
         Route::delete('/delete/{id}', 'Admin\ProductCategoryController@delete')->name('product_category.delete');
     });
+
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/', 'Admin\ProductController@index')->name('product.index');
+        Route::get('/create', 'Admin\ProductController@create')->name('product.create');
+        Route::post('/store', 'Admin\ProductController@store')->name('product.store');
+        Route::get('/edit/{id}', 'Admin\ProductController@show')->name('product.show');
+        Route::put('/update/{id}', 'Admin\ProductController@update')->name('product.update');
+        Route::delete('/delete/{id}', 'Admin\ProductController@delete')->name('product.delete');
+    });
 });
