@@ -36,9 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //admin routes
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('dashboard', function () {
-       return view('admin.dashboard');
-    });
+    Route::get('dashboard', "Admin\DashboardController@dashboard")->name('admin.dashboard');
 
     Route::group(['prefix' => 'product-category'], function () {
         Route::get('/', 'Admin\ProductCategoryController@index')->name('product_category.index');

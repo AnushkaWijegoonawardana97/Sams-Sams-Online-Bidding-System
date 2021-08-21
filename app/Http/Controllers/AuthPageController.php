@@ -7,6 +7,7 @@ use App\User;
 use App\Seller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\Contracts\Activity;
 
 class AuthPageController extends Controller
 {
@@ -61,6 +62,9 @@ class AuthPageController extends Controller
         $seller->address = $request->address;
         $seller->user_id = $user->id;
         $seller->save();
+
+        activity('Seller Registration')->causedBy($user)->performedOn($seller)->log('new seller registration');
+
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
