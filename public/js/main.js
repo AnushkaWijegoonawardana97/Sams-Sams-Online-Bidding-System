@@ -37419,7 +37419,7 @@ closeNavBtn.onclick = function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\LMU\Sams-Sams-Online-Bidding-System\resources\js\main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Sams-Sams-Online-Bidding-System\resources\js\main.js */"./resources/js/main.js");
 
 
 /***/ })

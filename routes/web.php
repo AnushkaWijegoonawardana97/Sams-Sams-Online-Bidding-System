@@ -19,6 +19,8 @@ Route::get('contact', 'LandingPageController@contactPage')->name('landing.contac
 Route::get('terms-conditions', 'LandingPageController@termsPage')->name('landing.terms');
 Route::get('guide', 'LandingPageController@guidePage')->name('landing.guide');
 Route::get('faq', 'LandingPageController@faqPage')->name('landing.faq');
+Route::get('shop', 'LandingPageController@shopPage')->name('landing.shop');
+
 
 Auth::routes();
 

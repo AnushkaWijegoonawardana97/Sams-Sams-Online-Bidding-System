@@ -40,4 +40,8 @@ class LandingPageController extends Controller
     {
         return view('landingPage.faq');
     }
+    public function shopPage()
+    {
+        return view('landingPage.shop');
+    }
 }

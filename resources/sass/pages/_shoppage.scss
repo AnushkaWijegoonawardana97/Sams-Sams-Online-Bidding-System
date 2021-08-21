@@ -1,0 +1,32 @@
+// <========== Section Spacing & Containers ==========>
+#product-list-container {
+        .slide-left {
+                
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 2rem;
+        }
+    }
+    @include respond-to(ex_large_max) {
+        #product-list-container {
+            .slide-left {
+                grid-gap: 1.5rem;
+            }
+        }
+    }
+    @include respond-to(medium_lg) {
+        #product-list-container {
+            .slide-left {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1.5rem;
+            }
+        }
+    }
+    @include respond-to(small) {
+        #product-list-container {
+            .slide-left {
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 1rem;
+            }
+        }
+    }

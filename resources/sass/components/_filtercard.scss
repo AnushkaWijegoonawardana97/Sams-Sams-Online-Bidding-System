@@ -1,0 +1,28 @@
+.filter-card {
+    position: relative;
+    border-radius: 0.5rem;
+    background-color: $theme-white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    
+
+   
+}
+
+@include respond-to(ex_large_max) {
+    .filter-card {
+        
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+
+            .pci-bid-now,
+            .pci-bid-fav {
+                margin-bottom: 0.75rem;
+            
+        }
+    }
+        
+}
