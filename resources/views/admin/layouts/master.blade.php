@@ -239,7 +239,7 @@
             
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2021 <a href="">Sams and Sams</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2021 <a href="">{{ config('app.name') }}</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
