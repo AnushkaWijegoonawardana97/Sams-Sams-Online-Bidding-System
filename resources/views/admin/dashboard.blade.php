@@ -66,33 +66,20 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <!-- Activity Item -->
-                            <div class="card card-primary card-outline">
-                                <div class="card-body">
-                                    <div class="font-weight-bold">Adam Smith new buyer has registerd to the system</div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <span class="badge badge-primary">Buyer Registration</span>
-                                            <span class="badge badge-primary">Online Registration</span>
+                            @foreach($activites as $activity)
+                                <!-- Activity Item -->
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body">
+                                        <div class="font-weight-bold">{{$activity->description}}</div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <span class="badge badge-primary">{{$activity->log_name}}</span>
+                                            </div>
+                                            <div class="font-italic"><i class="far fa-clock"></i> {{$activity->created_at->diffForHumans()}}</div>
                                         </div>
-                                        <div class="font-italic"><i class="far fa-clock"></i> 3 minutes ago</div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Activity Item -->
-                            <div class="card card-danger card-outline">
-                                <div class="card-body">
-                                    <div class="font-weight-bold">Adam Smith has cancled the bid #345</div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <span class="badge badge-warning">Biding Cancelation</span>
-                                            <span class="badge badge-danger">User Cancelation</span>
-                                        </div>
-                                        <div class="font-italic"><i class="far fa-clock"></i> 3 minutes ago</div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
