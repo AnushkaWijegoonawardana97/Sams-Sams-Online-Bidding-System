@@ -71,7 +71,17 @@
             </ul>
 
             <!-- Navbar Buttons -->
-            <a href="" class="btn btn-theme-secondary desktop-only">Login</a>
+            @if(Auth::check())
+                <a href="" class="btn btn-theme-secondary desktop-only">Hi {{Auth::user()->name}}</a>
+
+                <a href="{{route('logout')}}" class="btn btn-theme-secondary desktop-only" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-theme-secondary desktop-only">Login</a>
+            @endif
 
             <!-- Mobile Open Nav Button -->
             <a href="#" class="mobile-opennav-button mobile-only" id="mobile-opennav-button"><i class="fas fa-bars"></i></a>

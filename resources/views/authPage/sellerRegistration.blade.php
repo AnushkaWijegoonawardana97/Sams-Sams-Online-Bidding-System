@@ -27,6 +27,38 @@
 
             <!-- Register Footer  -->
             <footer class="register-footer text-center">
+                <form method="POST" action="{{route('auth.createSeller')}}">
+                    @csrf
+                    <label for="">Fisrt Name</label>
+                    <input type="text" name="first_name" id="" >
+
+
+                    <label for="">Last Name</label>
+                    <input type="text" name="last_name" id="" >
+
+                    <label for="">Seller Type</label>
+                    <select name="seller_type" id="">
+                        <option value="company">Company</option>
+                        <option value="individual">Individual</option>
+                    </select>
+
+                    <label for="">Cnpany Name</label>
+                    <input type="text" name="company_name" id="" >
+
+                    <label for="">Contact number</label>
+                    <input type="text" name="contact_number" id="" >
+
+                    <label for="">Email Address</label>
+                    <input type="text" name="email" id="" >
+
+                    <label for="">Address</label>
+                    <input type="text" name="address" id="" >
+
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="">
+
+                    <input type="submit" value="Register">
+                </form>
                 <p class="register-footer-text">
                     Don't have an account? <a href="{{ route('auth.register') }}" class="login-link">Register</a>
                 </p>

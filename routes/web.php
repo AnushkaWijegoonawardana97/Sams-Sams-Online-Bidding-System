@@ -29,6 +29,7 @@ Route::get('forgot_password', 'AuthPageController@passwordReset')->name('auth.pa
 Route::get('seller_registration', 'AuthPageController@sellerRegistration')->name('auth.sellerRegistration');
 Route::get('buyer_registration', 'AuthPageController@buyerRegistration')->name('auth.buyerRegistration');
 
+Route::post('createSeller', 'AuthPageController@createSeller')->name('auth.createSeller');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
