@@ -82,7 +82,6 @@ class AuthSeeder extends Seeder
         {
             $super_admin_permission = Permission::where('name', $permission_name)->first();
             $super_admin_role->givePermissionTo($super_admin_permission);
-//            $super_admin_permission->assignRole($super_admin_role);
         }
 
         // define super admin

@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="usernameemail">Email address</label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="usernameemail" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="usernameemail" aria-describedby="emailHelp" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="userpassword">Password</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password" required autocomplete="current-password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"  autocomplete="current-password">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Activitylog\Contracts\Activity;
 
 class ProductCategoryController extends Controller
 {
@@ -35,6 +36,8 @@ class ProductCategoryController extends Controller
 
         $category->save();
 
+        activity('New Product Category')->performedOn($category)->log('New product category created - Dashboard Activity');
+
         return redirect(route('product_category.index'))->with('message', 'Product category created Successfully !');
     }
 
@@ -62,6 +65,8 @@ class ProductCategoryController extends Controller
             $category->category_description = $request->category_description;
 
             $category->save();
+
+            activity('Product Category Updated')->performedOn($category)->log('Product category has been updated - Dashboard Activity');
         }
 
         return redirect(route('product_category.show', $category->id))->with('message', 'Product category updated Successfully !');
@@ -73,6 +78,7 @@ class ProductCategoryController extends Controller
 
         if($category) {
             $category->delete();
+            activity('Product Category Deleted')->performedOn($category)->log('Product category has been deleted - Dashboard Activity');
             return redirect(route('product_category.index'))->with('message', 'Product category deleted Successfully !');
         }
     }

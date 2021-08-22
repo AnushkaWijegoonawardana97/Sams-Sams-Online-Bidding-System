@@ -132,13 +132,14 @@
                     <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
                 </div>
             </div>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    @hasanyrole('super_admin')
                     <li class="nav-item">
                         <a href="{{ route('product_category.index') }}" class="nav-link {{ Request::is('admin/product-category*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-th"></i>
@@ -162,8 +163,10 @@
                             </li>
                         </ul>
                     </li>
+                    @endhasanyrole
+                    @hasanyrole('seller|super_admin')
                     <li class="nav-item">   
-                        <a href="" class="nav-link">
+                        <a href="{{ route('product.index') }}" class="nav-link  {{ Request::is('admin/product*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-boxes"></i>
                             <p>
                                 Products
@@ -172,19 +175,21 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('product.create') }}" class="nav-link  {{ Request::is('admin/product/create') ? 'active' : '' }}">
                                     <i class="fas fa-plus nav-icon"></i>
                                     <p>Add Product</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('admin/product') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>All Products</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    @endhasanyrole
+                    @hasanyrole('super_admin')
                     <li class="nav-item">
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-gavel"></i>
@@ -208,6 +213,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endhasanyrole
+                    @hasanyrole('seller|super_admin')
                     <li class="nav-item">
                         <a href="" class="nav-link">    
                             <i class="nav-icon fas fa-truck-loading"></i>
@@ -237,6 +244,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endhasanyrole
+                    @hasanyrole
                     <li class="nav-item">
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-user-tag"></i>
@@ -318,6 +327,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endhasanyrole
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
