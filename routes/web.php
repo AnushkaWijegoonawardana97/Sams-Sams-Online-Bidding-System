@@ -29,6 +29,7 @@ Route::get('seller_registration', 'AuthPageController@sellerRegistration')->name
 Route::get('buyer_registration', 'AuthPageController@buyerRegistration')->name('auth.buyerRegistration');
 
 Route::post('createSeller', 'AuthPageController@createSeller')->name('auth.createSeller');
+Route::post('createBuyer', 'AuthPageController@createBuyer')->name('auth.createBuyer');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
