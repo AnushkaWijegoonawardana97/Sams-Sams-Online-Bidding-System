@@ -17230,6 +17230,40 @@ input:focus {
   font-weight: 700;
 }
 
+#page-header-navigation .top-header-nav .logedin-dropdown .logedin-btn {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+#page-header-navigation .top-header-nav .logedin-dropdown .logedin-btn .logedin-img {
+  border-radius: 50px;
+  margin-right: 1rem;
+}
+
+#page-header-navigation .top-header-nav .logedin-dropdown .logedin-btn .logedin-text {
+  margin-right: 0.75rem;
+  text-transform: capitalize;
+  color: #0654ae;
+}
+
+#page-header-navigation .top-header-nav .logedin-dropdown .dropdown-menu {
+  min-width: 220px;
+}
+
+#page-header-navigation .top-header-nav .logedin-dropdown .dropdown-menu .dropdown-item {
+  min-width: 220px;
+  color: #414141;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+#page-header-navigation .top-header-nav .logedin-dropdown .dropdown-menu .dropdown-item:hover {
+  color: #0654ae;
+  font-weight: 700;
+}
+
 #page-header-navigation .bottom-header-nav {
   padding: 1rem;
   width: 100%;

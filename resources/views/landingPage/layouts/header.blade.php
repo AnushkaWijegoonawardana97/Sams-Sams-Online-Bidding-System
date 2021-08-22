@@ -72,13 +72,24 @@
 
             <!-- Navbar Buttons -->
             @if(Auth::check())
-                <a href="" class="btn btn-theme-secondary desktop-only">Hi {{Auth::user()->name}}</a>
+                <div class="dropdown logedin-dropdown">
+                    <a class="btn logedin-btn dropdown-toggle d-flex align-items-center justify-content-between" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img width="32" height="32" src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" alt="{{Auth::user()->name}} profile image" class="logedin-img">
+                        <div class="logedin-text">{{Auth::user()->name}}</div>
+                    </a>
 
-                <a href="{{route('logout')}}" class="btn btn-theme-secondary desktop-only" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Admin Dashboard</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </div>
             @else
                 <a href="{{ route('login') }}" class="btn btn-theme-secondary desktop-only">Login</a>
             @endif
