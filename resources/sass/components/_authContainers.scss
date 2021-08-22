@@ -261,6 +261,29 @@ form {
             margin-bottom: 4rem;
         }
 
+        .auth-form-header {
+            .auth-header-title {
+                font-size: 42px;
+                line-height: 68px;
+                color: $theme-ptcolor;
+                margin-bottom: 0rem;
+            }
+
+            .auth-header-subtitle {
+                font-size: 32px;
+                line-height: 48px;
+                color: $theme-ptcolor;
+                margin-bottom: 0rem;
+            }
+
+            .auth-header-test {
+                font-size: 18px;
+                line-height: 24px;
+                color: $theme-stcolor;
+                margin-bottom: 3rem;
+            }
+        }
+
         .register-footer {
             margin-top: 2rem;
 

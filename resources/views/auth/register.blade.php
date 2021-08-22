@@ -1,77 +1,54 @@
-@extends('layouts.app')
+@extends('auth.layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <!-- Auth Page Banner Container -->
+    <section class="auth-form-banner" id="register-form-banner"></section>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <!-- Auth Page Form Container -->
+    <section class="auth-form-container" id="register-form-container">
+        <div class="auth-form-inner">
+            <!-- Auth Form Navigation -->
+            <nav class="auth-form-nav">
+                <a href="/" class="auth-barnding">
+                    <img width="175" height="50" src="{{asset('img/Logo.png')}}" alt="" class="auth-logo">
+                </a>
+            </nav>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+            <!-- Auth Form Header -->
+            <Header class="auth-form-header">
+                <h1 class="auth-header-title">Select Account Type.</h1>
+                <p class="auth-header-test">Please select the type of Account You want to Sign Up for:</p>
+            </Header>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <!-- Register Buttons -->
+            <div class="div register-button-container d-flex align-items-center justify-content-between">
+                <!-- Seller Registration -->
+                <div class="registration-btn" id="seller-registration">
+                    <a href="{{ route('auth.sellerRegistration') }}" class="register-btn-link d-block">
+                        <img src="{{asset('img/user-tag-solid.svg')}}" alt="" class="registration-icon" width="200" height="200">
+                        <a href="{{ route('auth.sellerRegistration') }}" class="btn btn-block btn-outline-primary registration-text-btn">Seller Account</a>
+                    </a>
+                </div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <!-- Buyer Registration -->
+                <div class="registration-btn" id="buyer-registration">
+                    <a href="{{ route('auth.buyerRegistration') }}" class="register-btn-link d-block">
+                        <img src="{{asset('img/user-tag-solid.svg')}}" alt="" class="registration-icon" width="200" height="200">
+                        <a href="{{ route('auth.buyerRegistration') }}" class="btn btn-block btn-outline-primary registration-text-btn">Buyer Account</a>
+                    </a>
                 </div>
             </div>
+
+            <!-- Auth Footer  -->
+            <footer class="auth-footer text-center">
+                <p class="auth-footer-text">
+                    Go back to <a href="{{ route('login') }}" class="login-link">Login</a>
+                </p>
+
+                <p class="auth-footer-text">
+                    By clicking on sign up button above, you confirm that you agree to the Skooleeo <a href="" class="login-link">Terms of Service</a> and <a href="" class="login-link">Privacy Policy</a>
+                </p>
+            </footer>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

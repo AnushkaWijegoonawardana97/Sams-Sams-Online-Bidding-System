@@ -39,6 +39,41 @@
                 }
             }
         }
+
+        .logedin-dropdown {
+            .logedin-btn {
+                font-size: 16px;
+                line-height: 18px;
+                font-weight: 500;
+
+                .logedin-img {
+                    border-radius: 50px;
+                    margin-right: 1rem;
+                }
+
+                .logedin-text {
+                    margin-right: 0.75rem;
+                    text-transform: capitalize;
+                    color: $theme-pblue;
+                }
+            }
+            .dropdown-menu {
+                min-width: 220px;
+
+                .dropdown-item {
+                    min-width: 220px;
+
+                    color: $theme-stcolor;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 500;
+                    &:hover {
+                        color: $theme-pblue;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
     }
 
     .bottom-header-nav {

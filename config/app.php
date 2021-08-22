@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
     ],
 
     /*
@@ -226,7 +227,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class
     ],
 
 ];

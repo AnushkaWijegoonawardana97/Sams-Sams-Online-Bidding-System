@@ -17441,6 +17441,27 @@ form .form-check {
   margin-bottom: 4rem;
 }
 
+.register-form-container .register-form-inner .auth-form-header .auth-header-title {
+  font-size: 42px;
+  line-height: 68px;
+  color: #262626;
+  margin-bottom: 0rem;
+}
+
+.register-form-container .register-form-inner .auth-form-header .auth-header-subtitle {
+  font-size: 32px;
+  line-height: 48px;
+  color: #262626;
+  margin-bottom: 0rem;
+}
+
+.register-form-container .register-form-inner .auth-form-header .auth-header-test {
+  font-size: 18px;
+  line-height: 24px;
+  color: #414141;
+  margin-bottom: 3rem;
+}
+
 .register-form-container .register-form-inner .register-footer {
   margin-top: 2rem;
 }

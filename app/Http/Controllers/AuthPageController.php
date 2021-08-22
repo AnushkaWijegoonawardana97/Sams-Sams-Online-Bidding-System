@@ -11,41 +11,41 @@ use Spatie\Activitylog\Contracts\Activity;
 
 class AuthPageController extends Controller
 {
-    public function loginPage()
-    {
-        return view('authPage.login');
-    }
-
     public function passwordReset()
     {
-        return view('authPage.passwordReset');
+        return view('auth.passwordReset');
     }
 
     public function register()
     {
-        return view('authPage.register');
+        return view('auth.register');
     }
 
 
     public function sellerRegistration()
     {
-        return view('authPage.sellerRegistration');
+        return view('auth.sellerRegistration');
     }
 
     public function buyerRegistration()
     {
-        return view('authPage.buyerRegistration');
+        return view('auth.buyerRegistration');
     }
 
     public function createSeller(Request $request) 
     {
         $this->validate($request, [
             'first_name'=>'required',
-            'last_name'=>'required'
+            'last_name'=>'required',
+            'contact_number'=>'required',
+            'email'=>'required',
+            'address'=>'required',
+            'username'=>'required',
+            'password'=>'required'
         ]);
 
         $user = new User();
-        $user->name = $request->first_name . " " . $request->last_name;
+        $user->name = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
@@ -63,7 +63,7 @@ class AuthPageController extends Controller
         $seller->user_id = $user->id;
         $seller->save();
 
-        activity('Seller Registration')->causedBy($user)->performedOn($seller)->log('new seller registration');
+        activity('Seller Registration')->causedBy($user)->performedOn($seller)->log('New seller has registerd to the system. - Online Registration');
 
         $credentials = $request->only('email', 'password');
 

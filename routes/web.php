@@ -23,9 +23,6 @@ Route::get('shop', 'LandingPageController@shopPage')->name('landing.shop');
 
 
 Auth::routes();
-
-// Login Flow Tempary Routes
-Route::get('newlogin', 'AuthPageController@loginPage')->name('auth.login');
 Route::get('registration', 'AuthPageController@register')->name('auth.register');
 Route::get('forgot_password', 'AuthPageController@passwordReset')->name('auth.passwordReset');
 Route::get('seller_registration', 'AuthPageController@sellerRegistration')->name('auth.sellerRegistration');

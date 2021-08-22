@@ -18,7 +18,7 @@ class CreateSellersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('seller_type');
-            $table->string('company_name');
+            $table->string('company_name')->nullable();
             $table->string('contact_number');
             $table->string('email')->unique();
             $table->text('address');

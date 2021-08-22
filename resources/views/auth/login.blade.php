@@ -1,4 +1,4 @@
-@extends('authPage.layouts.master')
+@extends('auth.layouts.master')
 
 @section('content')
     <!-- Auth Page Banner Container -->
