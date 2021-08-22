@@ -73,7 +73,7 @@
             <!-- Navbar Buttons -->
             @if(Auth::check())
                 <div class="dropdown logedin-dropdown">
-                    <a class="btn logedin-btn dropdown-toggle d-flex align-items-center justify-content-between" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn logedin-btn dropdown-toggle d-flex align-items-center justify-content-between"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img width="32" height="32" src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" alt="{{Auth::user()->name}} profile image" class="logedin-img">
                         <div class="logedin-text">{{Auth::user()->name}}</div>
                     </a>
