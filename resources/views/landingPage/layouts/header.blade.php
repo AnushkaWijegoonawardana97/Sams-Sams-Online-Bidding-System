@@ -82,7 +82,7 @@
                         <a class="dropdown-item" href="#">Dashboard</a>
                         <a class="dropdown-item" href="#">Account Settings</a>
                         <div class="dropdown-divider"></div>
-                        @hasanyrole('buyer|super_admin')
+                        @hasanyrole('seller|super_admin')
                             <a class="dropdown-item" href="#">Admin Dashboard</a>
                             <div class="dropdown-divider"></div>
                         @endhasanyrole

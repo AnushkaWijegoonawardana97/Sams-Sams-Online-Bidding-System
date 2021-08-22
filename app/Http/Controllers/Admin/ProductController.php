@@ -2,79 +2,69 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Product;
+use Spatie\Activitylog\Contracts\Activity;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        // $categories = ProductCategory::all();
+        $products = Product::all();
 
-        // return view('admin.product-category.index', compact('categories', $categories));
-        return view('admin.product-category.index');
+        return view('admin.product.index', compact('products', $products));
     }
 
     public function create()
     {
-        return view('admin.product-category.create');
+        return view('admin.product.create');
     }
 
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'category_name' => 'required',
-        //     'category_description' => 'required'
-        // ]);
+        $this->validate($request, [
+            'product_name' => 'required',
+            'product_description' => 'required',
+            'product_condition' => 'required',
+            'starting_bid_price' => 'required',
+            'min_bid_price' => 'required',
+            'bid_ending_date' => 'required',
+        ]);
 
-        // $category = new ProductCategory();
+        $product = new Product();
+        $product->product_name = $request->product_name;
+        $product->product_description = $request->product_description;
+        $product->product_condition = $request->product_condition;
+        $product->starting_bid_price = $request->starting_bid_price;
+        $product->min_bid_price = $request->min_bid_price;
+        $product->bid_ending_date = $request->bid_ending_date;
+        $product->special_product_notes = $request->special_product_notes;
+        $product->inspection_video = $request->inspection_video;
+        $product->status = "Active";
+        $product->save();
 
-        // $category->category_name = $request->category_name;
+        activity('New Product')->performedOn($product)->log('New product category created - Dashboard Activity');
 
-        // $category->category_description = $request->category_description;
-
-        // $category->save();
-
-        // return redirect(route('product_category.index'))->with('message', 'Product category created Successfully !');
+        return redirect(route('product.index'))->with('message', 'Product created Successfully !');
     }
+
 
     public function show($id)
     {
-        // $category = ProductCategory::find($id);
+        $product = Product::find($id);
 
-        // if($category) {
-        //     return view('admin.product-category.edit', compact('category', $category));
-        // }
+        if($product) {
+            return view('admin.product.show', compact('product', $product));
+        }
     }
 
-    public function update(Request $request, $id)
+    public function edit($id)
     {
-        // $this->validate($request, [
-        //     'category_name' => 'required',
-        //     'category_description' => 'required'
-        // ]);
+        $product = Product::find($id);
 
-        // $category = ProductCategory::find($id);
-
-        // if($category) {
-        //     $category->category_name = $request->category_name;
-
-        //     $category->category_description = $request->category_description;
-
-        //     $category->save();
-        // }
-
-        // return redirect(route('product_category.show', $category->id))->with('message', 'Product category updated Successfully !');
-    }
-
-    public function delete($id)
-    {
-        // $category = ProductCategory::find($id);
-
-        // if($category) {
-        //     $category->delete();
-        //     return redirect(route('product_category.index'))->with('message', 'Product category deleted Successfully !');
-        // }
+        if($product) {
+            return view('admin.product.edit', compact('product', $product));
+        }
     }
 }
