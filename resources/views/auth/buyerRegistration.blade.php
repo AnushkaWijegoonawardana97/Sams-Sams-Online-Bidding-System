@@ -17,11 +17,11 @@
             <!-- Registration Wizzard -->
             <div class="registration-wizard-container">
                 <Header class="auth-form-header">
-                    <h1 class="auth-header-subtitle">Welcome Back.</h1>
+                    <h1 class="auth-header-subtitle">Buyer Registration.</h1>
                     <p class="auth-header-test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, rem?</p>
                 </Header>
 
-                <form method="POST" action="{{route('auth.createSeller')}}"  class="registration-form">
+                <form method="POST" action="{{route('auth.createBuyer')}}"  class="registration-form">
                     @csrf
                     <div class="form-group">
                         <div class="form-row">
@@ -38,33 +38,6 @@
                                 <label for="last_name">Last Name</label>
                                 <input type="text" class="form-control  @error('last_name') is-invalid @enderror" placeholder="Last name" name="last_name" value="{{ old('last_name') }}">
                                 @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <label for="seller_type">Seller Type</label>
-                                <select id="inputState" class="form-control @error('seller_type') is-invalid @enderror" name="seller_type">
-                                    <option value="company">Company</option>
-                                    <option value="dealer">Dealer</option>
-                                    <option value="individual">Individual</option>
-                                </select>
-                                @error('seller_type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <label for="company_name">Company Name</label>
-                                <input type="text" class="form-control @error('company_name') is-invalid @enderror" placeholder="Company Name" name="company_name" value="{{ old('company_name') }}">
-                                @error('company_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -98,20 +71,6 @@
 
                     <div class="form-group">
                         <div class="form-row">
-                            <div class="col-md-12">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control @error('address') is-invalid @enderror" placeholder="Address" name="address" value="{{ old('address') }}">
-                                 @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-row">
                             <div class="col-md-6">
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username" value="{{ old('username') }}">
@@ -133,7 +92,64 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block mt-5">Register as a seller</button>
+                    <p>Resident Address: </p>
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="res_address_line1">Address Line 1</label>
+                                <input type="text" class="form-control @error('res_address_line1') is-invalid @enderror" placeholder="Address Line 1" name="res_address_line1" value="{{ old('res_address_line1') }}">
+                                @error('res_address_line1')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <label for="res_address_line2">Address Line 2</label>
+                                <input type="text" class="form-control  @error('res_address_line2') is-invalid @enderror" placeholder="Address Line 2" name="res_address_line2" value="{{ old('res_address_line2') }}">
+                                @error('res_address_line2')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label for="res_city">City</label>
+                                <input type="text" class="form-control @error('res_city') is-invalid @enderror" placeholder="City" name="res_city" value="{{ old('res_city') }}">
+                                @error('res_city')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="res_district">District</label>
+                                <input type="text" class="form-control  @error('res_district') is-invalid @enderror" placeholder="District" name="res_district" value="{{ old('res_district') }}">
+                                @error('res_district')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label for="res_zip_code">Zip Code</label>
+                                <input type="text" class="form-control  @error('res_zip_code') is-invalid @enderror" placeholder="Zip Code" name="res_zip_code" value="{{ old('res_zip_code') }}">
+                                @error('res_zip_code')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mt-5">Register as a buyer</button>
                 </form>
             </div>
 
