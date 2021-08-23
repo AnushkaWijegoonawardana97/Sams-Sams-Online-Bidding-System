@@ -51,7 +51,7 @@ class ProductController extends Controller
 
         activity('New Product')->performedOn($product)->log('New product category created - Dashboard Activity');
 
-        return redirect(route('product.index'))->with('message', 'Product created Successfully !');
+        return redirect(route('product.index'))->with('message', 'Product created Successfully !')->with('class', 'alert-info');
     }
 
 
@@ -110,6 +110,17 @@ class ProductController extends Controller
             activity('Product Updated')->performedOn($product)->log('Product has been updated - Dashboard Activity');
         }
 
-        return redirect(route('product.show', $product->id))->with('message', 'Product updated Successfully !');
+        return redirect(route('product.show', $product->id))->with('message', 'Product updated Successfully !')->with('class', 'alert-info');
+    }
+
+    public function delete($id)
+    {
+        $product = Product::find($id);
+
+        if($product) {
+            $product->delete();
+            activity('Product Deleted')->performedOn($product)->log('Product has been deleted - Dashboard Activity');
+            return redirect(route('product.index'))->with('message', 'Product deleted Successfully !')->with('class', 'alert-danger');
+        }
     }
 }
