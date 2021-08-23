@@ -176,7 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
-        Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class
+
     ],
 
     /*
