@@ -71,7 +71,7 @@ class AuthPageController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('landing.home');
+            return redirect()->intended('/');
         }
     }
 
@@ -118,7 +118,7 @@ class AuthPageController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('landing.home');
+            return redirect()->intended('/');
         }
     }
 }

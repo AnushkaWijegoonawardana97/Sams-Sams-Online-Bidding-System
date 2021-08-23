@@ -109,7 +109,7 @@
 
                                         <div class="col">
                                             <label for="bid_ending_date">Bid Closing Date</label>
-                                            <input type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" aria-describedby="bid_ending_date-error" aria-invalid="true">
+                                            <input  type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" aria-describedby="bid_ending_date-error" aria-invalid="true">
                                             @error('bid_ending_date')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
