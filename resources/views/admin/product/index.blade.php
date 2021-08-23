@@ -46,17 +46,14 @@
                                 <th style="width: 20%">
                                     Product Name
                                 </th>
-                                <th style="width: 30%">
+                                <th style="width: 25%">
                                     Product Description
                                 </th>
                                 <th style="width: 10%">
                                     Starting Bid Price
                                 </th>
-                                <th style="width: 10%">
+                                <th style="width: 15%">
                                     Bid Endign Date
-                                </th>
-                                <th style="width: 30%">
-                                    test
                                 </th>
                                 <th style="width: 20%">
                                 </th>
@@ -80,10 +77,6 @@
                                         </td>
                                         <td>
                                             {{$product->bid_ending_date}}  
-                                        </td>
-                                        <td>
-                                            <span>Date : {{Carbon\Carbon::now()}}</span> 
-                                            <span>isExpired : {{$product->isExpiredBid()}}  </span>
                                         </td>
                                         <td class="project-actions text-right d-flex align-items-center justify-content-center">
                                             <a class="btn btn-info btn-sm mr-2" href="{{ route('product.show', $product->id) }}">
