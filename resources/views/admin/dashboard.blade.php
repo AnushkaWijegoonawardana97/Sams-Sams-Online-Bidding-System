@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', config('app.name'). '| Dashboard')
+@section('title', config('app.name'). ' | Dashboard')
 
 @section('content')
     <!-- Content Header (Page header) -->

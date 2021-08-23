@@ -166,7 +166,7 @@
                     @endhasanyrole
                     @hasanyrole('seller|super_admin')
                     <li class="nav-item">   
-                        <a href="{{ route('product.index') }}" class="nav-link  {{ Request::is('admin/product*') ? 'active' : '' }}">
+                        <a href="{{ route('product.index') }}" class="nav-link  {{ Request::is('admin/products*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-boxes"></i>
                             <p>
                                 Products
@@ -175,13 +175,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('product.create') }}" class="nav-link  {{ Request::is('admin/product/create') ? 'active' : '' }}">
+                                <a href="{{ route('product.create') }}" class="nav-link  {{ Request::is('admin/products/create') ? 'active' : '' }}">
                                     <i class="fas fa-plus nav-icon"></i>
                                     <p>Add Product</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('admin/product') ? 'active' : '' }}">
+                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('admin/products') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>All Products</p>
                                 </a>
@@ -245,7 +245,7 @@
                         </ul>
                     </li>
                     @endhasanyrole
-                    @hasanyrole
+                    @hasanyrole('super_admin')
                     <li class="nav-item">
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-user-tag"></i>
@@ -353,5 +353,6 @@
 
 <!-- jQuery -->
 <script src="{{ asset('js/app.js') }}"></script>
+@yield('additional-scripts')
 </body>
 </html>

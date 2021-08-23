@@ -23,7 +23,9 @@ class CreateProductsTable extends Migration
             $table->datetime('bid_ending_date');    
             $table->text('special_product_notes')->nullable();    
             $table->string('inspection_video')->nullable();    
-            $table->string('status');    
+            $table->string('status');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('product_categories');
             $table->timestamps();
         });
     }

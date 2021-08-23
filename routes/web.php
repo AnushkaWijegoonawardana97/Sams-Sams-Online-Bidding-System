@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::delete('/delete/{id}', 'Admin\ProductCategoryController@delete')->name('product_category.delete');
         });
 
-        Route::group(['prefix' => 'product'], function () {
+        Route::group(['prefix' => 'products'], function () {
             Route::get('/', 'Admin\ProductController@index')->name('product.index');
             Route::get('/create', 'Admin\ProductController@create')->name('product.create');
             Route::post('/store', 'Admin\ProductController@store')->name('product.store');
