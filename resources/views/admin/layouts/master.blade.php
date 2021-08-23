@@ -189,7 +189,7 @@
                         </ul>
                     </li>
                     @endhasanyrole
-                    @hasanyrole('super_admin')
+                    @hasanyrole('seller|super_admin')
                     <li class="nav-item">
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-gavel"></i>
@@ -199,12 +199,14 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Add New Bid</p>
-                                </a>
-                            </li>
+                            @hasanyrole('super_admin')
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="fas fa-plus nav-icon"></i>
+                                        <p>Add New Bid</p>
+                                    </a>
+                                </li>
+                            @endhasanyrole
                             <li class="nav-item">
                                 <a href="" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
@@ -328,6 +330,25 @@
                         </ul>
                     </li>
                     @endhasanyrole
+                    <li class="nav-item">
+                        <a href="{{ route('landing.home') }}" class="nav-link">
+                            <i class="nav-icon fas fa-hand-point-left"></i>
+                            <p>
+                                Back to website
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>
+                                Logout
+                            </p>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

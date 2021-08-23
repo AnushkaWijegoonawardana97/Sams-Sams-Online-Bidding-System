@@ -17,8 +17,8 @@ class DashboardController extends Controller
     
     public function dashboard() 
     {
-       $activites = Activity::all()->take(10);
-       $products = Product::all()->take(5);
+       $activites = Activity::all()->sortByDesc('created_at')->take(10);
+       $products = Product::all()->sortByDesc('created_at')->take(5);
        return view('admin.dashboard')->with('activites', $activites)->with('products', $products);
     }
 }
