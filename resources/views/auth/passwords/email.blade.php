@@ -1,5 +1,5 @@
 @extends('auth.layouts.master')
-
+@section('title', "Let's reset your password - Sams & Sams")
 @section('content')
     <!-- Auth Page Banner Container -->
     <section class="auth-form-banner" id="fgpw-form-banner"></section>
