@@ -1,5 +1,5 @@
 @extends('auth.layouts.master')
-
+@section('title', "Let's Sign up as a seller")
 @section('content')
     <!-- Register Page Banner Container -->
     <section class="register-form-banner" id="seller-form-banner"></section>
@@ -17,8 +17,8 @@
             <!-- Registration Wizzard -->
             <div class="registration-wizard-container">
                 <Header class="auth-form-header">
-                    <h1 class="auth-header-subtitle">Welcome Back.</h1>
-                    <p class="auth-header-test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, rem?</p>
+                    <h1 class="auth-header-subtitle">Sign Up as a Seller.</h1>
+                    <p class="auth-header-test">Buy sign up a seller you can sell any product to anyone arround the country. Let's hurry up what are we waiting for.</p>
                 </Header>
 
                 <form method="POST" action="{{route('auth.createSeller')}}"  class="registration-form">

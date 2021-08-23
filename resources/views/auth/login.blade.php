@@ -1,5 +1,5 @@
 @extends('auth.layouts.master')
-
+@section('title', 'Sign in for SAMS & SAMS')
 @section('content')
     <!-- Auth Page Banner Container -->
     <section class="auth-form-banner" id="login-form-banner"></section>
@@ -17,7 +17,7 @@
             <!-- Auth Form Header -->
             <Header class="auth-form-header">
                 <h1 class="auth-header-title">Welcome Back.</h1>
-                <p class="auth-header-test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, rem?</p>
+                <p class="auth-header-test">To keep connected with us please login with your personal information by email address & password.</p>
             </Header>
 
             <!-- Login Form -->
