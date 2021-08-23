@@ -11,7 +11,7 @@ class ProductCategoryController extends Controller
 {
     public function index()
     {
-        $categories = ProductCategory::all();
+        $categories = ProductCategory::all()->sortByDesc('created_at');
 
         return view('admin.product-category.index', compact('categories', $categories));
     }
