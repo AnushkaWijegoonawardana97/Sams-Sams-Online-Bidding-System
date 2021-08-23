@@ -5,7 +5,11 @@
     left: 0;
     width: 50%;
     height: 100vh;
-    background-color: black;
+    // background-color: black;
+    background-image: url("../img/Login-Background-Image.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .auth-form-container {
     width: 50%;
@@ -187,7 +191,6 @@ form {
         .form-control {
             &:focus {
                 box-shadow: none;
-                border-color: $theme-sblue;
                 font-weight: 400;
             }
         }
@@ -245,7 +248,11 @@ form {
     left: 0;
     width: 40%;
     height: 100vh;
-    background-color: black;
+    // background-color: black;
+    background-image: url("../img/Registratiob-Background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .register-form-container {

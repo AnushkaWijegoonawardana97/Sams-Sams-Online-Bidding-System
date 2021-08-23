@@ -1,5 +1,5 @@
 @extends('auth.layouts.master')
-
+@section('title', "Let's Sign up as a buyer")
 @section('content')
     <!-- Register Page Banner Container -->
     <section class="register-form-banner" id="seller-form-banner"></section>
@@ -17,8 +17,8 @@
             <!-- Registration Wizzard -->
             <div class="registration-wizard-container">
                 <Header class="auth-form-header">
-                    <h1 class="auth-header-subtitle">Buyer Registration.</h1>
-                    <p class="auth-header-test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, rem?</p>
+                    <h1 class="auth-header-subtitle">Sign Up as a Buyer.</h1>
+                    <p class="auth-header-test">Let's create your buyer account quickly becuase with the buyer account you can place you bid for the thousands of items form all around the country.</p>
                 </Header>
 
                 <form method="POST" action="{{route('auth.createBuyer')}}"  class="registration-form">
