@@ -48,7 +48,7 @@
         <nav class="top-header-nav d-flex align-items-center">
             <!-- Navbar Branding -->
             <a href="" class="navbar-brand">
-                <img width="175" height="50" src="{{asset('img/Logo.png')}}" alt="">
+                <img width="175" height="50" src="{{asset('img/Logo.png')}}" alt="Sams & Sams Logo">
             </a>
 
             <!-- Navbar Links -->
@@ -83,7 +83,7 @@
                         <a class="dropdown-item" href="#">Account Settings</a>
                         <div class="dropdown-divider"></div>
                         @hasanyrole('seller|super_admin')
-                            <a class="dropdown-item" href="#">Admin Dashboard</a>
+                            <a class="dropdown-item" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
                             <div class="dropdown-divider"></div>
                         @endhasanyrole
                         <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>

@@ -32,53 +32,90 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="product_name">Product Name</label>
-                                    <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Enter product name" aria-describedby="product_name-error" aria-invalid="true">
-                                    <span id="product_name-error" class="error invalid-feedback">Please enter a product name</span>
+                                    <input type="text" name="product_name" class="form-control @error('product_name') is-invalid @enderror" id="product_name" placeholder="Enter product name" aria-describedby="product_name-error" aria-invalid="true">
+                                    @error('product_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="product_description">Product Description</label>
-                                    <textarea name="product_description" class="form-control" id="product_description" placeholder="Enter product description" aria-describedby="product_description-error" spellcheck="true" cols="20" rows="10"></textarea>
-                                    <span id="product_description-error" class="error invalid-feedback">Please enter a product description</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="product_condition">Product Condition</label>
-                                    <select class="form-control" id="product_condition" name="product_condition">
-                                        <option value="brand new">Brand New</option>
-                                        <option value="second hand">Second Hand</option>
-                                        <option value="first owner">First Owner</option>
-                                        <option value="imported">Imported</option>
-                                    </select>
-                                    <span id="product_condition-error" class="error invalid-feedback">Please select the product condition</span>
+                                    <textarea name="product_description" class="form-control @error('product_description') is-invalid @enderror" id="product_description" placeholder="Enter product description" aria-describedby="product_description-error" spellcheck="true" cols="20" rows="10"></textarea>
+                                    @error('product_description')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <div class="form-row">
-                                        <div class="col">
+                                        <div class="col-md-6">
+                                            <label for="product_condition">Product Condition</label>
+                                            <select class="form-control" id="product_condition" name="product_condition">
+                                                <option value="brand new">Brand New</option>
+                                                <option value="second hand">Second Hand</option>
+                                                <option value="first owner">First Owner</option>
+                                                <option value="imported">Imported</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="product_category">Product Category</label>
+                                            <select class="form-control" id="product_category" name="product_category">
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                                @endforeach
+                                            </select>
+                                            <span id="product_category-error" class="error invalid-feedback">Please select the product category</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
                                             <label for="starting_bid_price">Starting Bid Price</label>
-                                            <input type="text" name="starting_bid_price" class="form-control" id="starting_bid_price" placeholder="Enter starting bid price" aria-describedby="starting_bid_price-error" aria-invalid="true">
-                                            <span id="starting_bid_price-error" class="error invalid-feedback">Please enter a starting bid price</span>
+                                            <input type="number" name="starting_bid_price" class="form-control @error('starting_bid_price') is-invalid @enderror" id="starting_bid_price" placeholder="Enter starting bid price" aria-describedby="starting_bid_price-error" aria-invalid="true" min="1000">
+                                            @error('starting_bid_price')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
 
-                                        <div class="col">
+                                        <div class="col-md-4">
                                             <label for="min_bid_price">Minimum Bid Price</label>
-                                            <input type="text" name="min_bid_price" class="form-control" id="min_bid_price" placeholder="Enter minimum bid price" aria-describedby="min_bid_price-error" aria-invalid="true">
-                                            <span id="min_bid_price-error" class="error invalid-feedback">Please enter a minimum bid price</span>
+                                            <input type="number" name="min_bid_price" class="form-control @error('min_bid_price') is-invalid @enderror" id="min_bid_price" placeholder="Enter minimum bid price" aria-describedby="min_bid_price-error" aria-invalid="true" min="10">
+                                            @error('min_bid_price')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
 
-                                        <div class="col">
+                                        <div class="col-md-4">
                                             <label for="bid_ending_date">Bid Closing Date</label>
-                                            <input type="date" name="bid_ending_date" class="form-control" id="bid_ending_date" placeholder="Enter bid closing date" aria-describedby="bid_ending_date-error" aria-invalid="true">
-                                            <span id="bid_ending_date-error" class="error invalid-feedback">Please enter a bid closing date</span>
+                                            <input type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" placeholder="Enter bid closing date" aria-describedby="bid_ending_date-error" aria-invalid="true">
+                                            @error('bid_ending_date')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="special_product_notes">Product Special Notes</label>
-                                    <textarea name="special_product_notes" class="form-control" id="special_product_notes" placeholder="Enter special product note" aria-describedby="special_product_notes-error" spellcheck="true" cols="20" rows="10"></textarea>
-                                    <span id="special_product_notes-error" class="error invalid-feedback">Please enter a special product note</span>
+                                    <textarea name="special_product_notes" class="form-control @error('special_product_notes') is-invalid @enderror" id="special_product_notes" placeholder="Enter special product note" aria-describedby="special_product_notes-error" spellcheck="true" cols="20" rows="10"></textarea>
+                                    @error('special_product_notes')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- /.card-body -->
