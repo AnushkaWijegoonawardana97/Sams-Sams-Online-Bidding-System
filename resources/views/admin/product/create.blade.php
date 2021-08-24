@@ -126,6 +126,7 @@
                                         </span>
                                     @enderror
                                 </div>
+                                <input class="form-control" name="product_seller" type="hidden" placeholder="" value="{{Auth::user()->id}}">
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">

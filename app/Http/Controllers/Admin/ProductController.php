@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductCategory;
+use App\Seller;
+use App\Sell;
 use Spatie\Activitylog\Contracts\Activity;
 use Carbon\Carbon;
+use Auth;
 
 class ProductController extends Controller
 {
     public function index()
     {
+        $categories = ProductCategory::all();
         $products = Product::all()->sortByDesc('created_at');
-
         return view('admin.product.index', compact('products', $products));
     }
 
@@ -47,6 +50,7 @@ class ProductController extends Controller
         $product->inspection_video = $request->inspection_video;
         $product->status = "Active";    
         $product->category_id = $request->product_category;
+        $product->user_id = $request->product_seller;
         $product->save();
 
         activity('New Product')->performedOn($product)->log('New product category created - Dashboard Activity');
@@ -104,6 +108,7 @@ class ProductController extends Controller
             $product->inspection_video = $request->inspection_video;
             $product->status = "Active";    
             $product->category_id = $request->product_category;
+            $product->user_id = $request->product_seller;
 
             $product->save();
 
