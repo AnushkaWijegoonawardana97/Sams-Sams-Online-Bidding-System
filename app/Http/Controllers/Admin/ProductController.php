@@ -16,6 +16,7 @@ class ProductController extends Controller
 {
     public function index()
     {
+        isExpiredBid();
         $categories = ProductCategory::all();
         $products = Product::all()->sortByDesc('created_at');
         return view('admin.product.index', compact('products', $products));
