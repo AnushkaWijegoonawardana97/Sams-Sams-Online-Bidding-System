@@ -11,5 +11,5 @@ class Product extends Model
     public function isExpiredBid()
     {
         return Carbon::now()->gte(Carbon::parse($this->bid_ending_date));
-    }
+    }   
 }

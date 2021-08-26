@@ -54,19 +54,19 @@
             <!-- Navbar Links -->
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 desktop-only">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{{route('landing.home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="{{route('landing.about')}}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
+                    <a class="nav-link" href="{{route('landing.shop')}}">Shop</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Browse Items</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{route('landing.contact')}}">Contact</a>
                 </li>
             </ul>
 
@@ -79,8 +79,8 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Dashboard</a>
-                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <!-- <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="#">Account Settings</a> -->
                         <div class="dropdown-divider"></div>
                         @hasanyrole('seller|super_admin')
                             <a class="dropdown-item" href="{{route('admin.dashboard')}}">Admin Dashboard</a>

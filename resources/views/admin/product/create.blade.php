@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-12 m-auto">
                     <div class="card card-primary">
-                        <form id="quickForm" novalidate="novalidate" action="{{ route('product.store') }}" method="POST">
+                        <form id="quickForm" novalidate="novalidate" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -126,6 +126,15 @@
                                         </span>
                                     @enderror
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="product_images">Product Images</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="product_images" name="product_images[]" multiple>
+                                        <label class="custom-file-label" for="product_images">Upload your prouct image files</label>
+                                    </div>
+                                </div>
+            
                                 <input class="form-control" name="product_seller" type="hidden" placeholder="" value="{{Auth::user()->id}}">
                             </div>
                             <!-- /.card-body -->

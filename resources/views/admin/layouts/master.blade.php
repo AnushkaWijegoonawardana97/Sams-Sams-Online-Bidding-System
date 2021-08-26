@@ -186,6 +186,24 @@
                                     <p>All Products</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add Inspection Times</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Inspection Times</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Scheduled Inspections</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     @endhasanyrole

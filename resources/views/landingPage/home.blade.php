@@ -2,8 +2,33 @@
 
 @section('content')
     <!-- Homepage Hero Slider -->
-    <section class="hero-slider primary-section-padding text-center" id="home-hero-slider">
-        Hero Slider Section
+    <section class="hero-slider text-center" id="home-hero-slider">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{asset('img/Banner-Image-01.png')}}" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{asset('img/Banner-Image-02.png')}}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{asset('img/Banner-Image-04.png')}}" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </section>
 
     <!-- Homepahe Features Section -->
@@ -21,161 +46,46 @@
 
         <!-- Product List Grid -->
         <div class="product-list-grid">
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
+            @foreach($products as $product)
+                <!-- Product Card -->
+                <div class="product-card" id="product-card">
+                    <div class="product-card-icons">
+                        <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
+                        <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                    </div>
 
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                    <a href="">
+                        <div class="product-card-img">
+                            <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
+                            <div class="bid-ends d-flex align-items-center justify-content-center">
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">12</span> D
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">4</span> H
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">6</span> M
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">45</span> S
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
+                    <div class="prdouct-card-content">
+                        <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
+                        <div class="product-bid">
+                            Current Bid : <span class="bid-amount">LKR 1000.00</span>
                         </div>
                     </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
                 </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -189,161 +99,46 @@
 
         <!-- Product List Grid -->
         <div class="product-list-grid">
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
+            @foreach($products as $product)
+                <!-- Product Card -->
+                <div class="product-card" id="product-card">
+                    <div class="product-card-icons">
+                        <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
+                        <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                    </div>
 
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                    <a href="">
+                        <div class="product-card-img">
+                            <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
+                            <div class="bid-ends d-flex align-items-center justify-content-center">
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">12</span> D
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">4</span> H
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">6</span> M
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">45</span> S
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
+                    <div class="prdouct-card-content">
+                        <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
+                        <div class="product-bid">
+                            Current Bid : <span class="bid-amount">LKR 1000.00</span>
                         </div>
                     </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
                 </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -367,161 +162,46 @@
 
         <!-- Product List Grid -->
         <div class="product-list-grid">
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
+            @foreach($products as $product)
+                <!-- Product Card -->
+                <div class="product-card" id="product-card">
+                    <div class="product-card-icons">
+                        <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
+                        <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                    </div>
 
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                    <a href="">
+                        <div class="product-card-img">
+                            <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
+                            <div class="bid-ends d-flex align-items-center justify-content-center">
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">12</span> D
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">4</span> H
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">6</span> M
+                                </div>
 
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
+                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <span class="bidend-item-value">45</span> S
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
+                    <div class="prdouct-card-content">
+                        <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
+                        <div class="product-bid">
+                            Current Bid : <span class="bid-amount">LKR 1000.00</span>
                         </div>
                     </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
                 </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card -->
-            <div class="product-card" id="product-card">
-                <div class="product-card-icons">
-                    <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                    <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                </div>
-
-                <a href="">
-                    <div class="product-card-img">
-                        <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
-
-                        <div class="bid-ends d-flex align-items-center justify-content-center">
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">12</span> D
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">4</span> H
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">6</span> M
-                            </div>
-
-                            <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                <span class="bidend-item-value">45</span> S
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="prdouct-card-content">
-                    <a href="#" class="product-title">Product name</a>
-                    <div class="product-bid">
-                        Current Bid : <span class="bid-amount">LKR 1000.00</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -529,4 +209,12 @@
     <section class="primary-section-padding text-center" id="">
         Seller Register Banner
     </section>
+@endsection
+
+@section('additional-scripts')
+    <script>
+        $('.carousel').carousel({
+            interval: 2000
+        })
+    </script>
 @endsection

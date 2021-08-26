@@ -19,7 +19,6 @@ Route::get('contact', 'LandingPageController@contactPage')->name('landing.contac
 Route::get('terms-conditions', 'LandingPageController@termsPage')->name('landing.terms');
 Route::get('guide', 'LandingPageController@guidePage')->name('landing.guide');
 Route::get('faq', 'LandingPageController@faqPage')->name('landing.faq');
-Route::get('shop', 'LandingPageController@shopPage')->name('landing.shop');
 
 Auth::routes();
 Route::get('registration', 'AuthPageController@register')->name('auth.register');
@@ -30,7 +29,9 @@ Route::get('buyer_registration', 'AuthPageController@buyerRegistration')->name('
 Route::post('createSeller', 'AuthPageController@createSeller')->name('auth.createSeller');
 Route::post('createBuyer', 'AuthPageController@createBuyer')->name('auth.createBuyer');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+// Shop Routes
+Route::get('shop', 'LandingPageController@shopPage')->name('landing.shop');
+Route::get('shop/{id}', 'LandingPageController@productPage')->name('landing.product');
 
 //admin routes
 Route::group(['middleware' => 'auth'], function () {

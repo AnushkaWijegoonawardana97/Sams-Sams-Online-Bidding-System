@@ -79,3 +79,5 @@
         <p>Copyright © 2019, Template</p>
     </section>
 </footer>
+
+@yield('additional-scripts')

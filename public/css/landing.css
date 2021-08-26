@@ -17852,6 +17852,15 @@ input:focus {
   }
 }
 
+#home-hero-slider #carouselExampleIndicators .carousel-inner .carousel-item {
+  height: 70vh;
+}
+
+#home-hero-slider #carouselExampleIndicators .carousel-inner .carousel-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 #product-list-container .slide-left {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

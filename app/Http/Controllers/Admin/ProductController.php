@@ -36,8 +36,16 @@ class ProductController extends Controller
             'starting_bid_price' => 'required',
             'min_bid_price' => 'required',
             'bid_ending_date' => 'required',
-            'product_category' => 'required'
+            'product_category' => 'required',
+            'product_images' => 'required'
         ]);
+
+        $productomages = array();
+        if($files = $request->product_images) {
+            foreach ($files as $file) {
+                
+            }
+        }
 
         $product = new Product();
         $product->product_name = $request->product_name;
@@ -108,7 +116,6 @@ class ProductController extends Controller
             $product->inspection_video = $request->inspection_video;
             $product->status = "Active";    
             $product->category_id = $request->product_category;
-            $product->user_id = $request->product_seller;
 
             $product->save();
 

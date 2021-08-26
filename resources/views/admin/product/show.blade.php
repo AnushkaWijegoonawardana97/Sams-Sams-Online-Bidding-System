@@ -114,7 +114,6 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-end">
-                            <a href="" class="btn btn-warning text-center mr-2"> <i class="fas fa-pencil-alt mr-3"></i> Edit Images</a>
                             <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning text-center mr-2"> <i class="fas fa-pencil-alt mr-3"></i> Edit Product</a>
                             <a href="" class="btn btn-info text-center mx-2"> <i class="fas fa-calendar-alt mr-3"></i> View Inspection Schedules</a>
                             <a href="" class="btn btn-info text-center mx-2"> <i class="fas fas fa-boxes mr-3"></i> View Product Bids</a>

@@ -29,3 +29,17 @@
         }
     }
 }
+
+// <========== Homepage Hero Slider ==========>
+#home-hero-slider {
+    #carouselExampleIndicators {
+        .carousel-inner {
+            .carousel-item {
+                height: 70vh;
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
