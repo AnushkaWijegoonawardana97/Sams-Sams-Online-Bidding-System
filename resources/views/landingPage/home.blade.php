@@ -103,7 +103,7 @@
                         <div class="prdouct-card-content">
                             <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
                             <div class="product-bid">
-                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                                Current Bid : <span class="bid-amount">{{$product->starting_bid_price}}</span>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                         <div class="prdouct-card-content">
                             <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
                             <div class="product-bid">
-                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                                Current Bid : <span class="bid-amount">{{$product->starting_bid_price}}</span>
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                         <div class="prdouct-card-content">
                             <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
                             <div class="product-bid">
-                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                                Current Bid : <span class="bid-amount">{{$product->starting_bid_price}}</span>
                             </div>
                         </div>
                     </div>

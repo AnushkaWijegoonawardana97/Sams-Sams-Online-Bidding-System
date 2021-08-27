@@ -18,7 +18,7 @@
                                 <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
                                 <div class="bid-ends d-flex align-items-center justify-content-center">
-                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                    <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">
                                         <span class="bidend-item-value">12</span> D
                                     </div>
 
@@ -32,7 +32,8 @@
 
                                     <div class="bidend-item d-flex aligin-items-center justify-content-center">
                                         <span class="bidend-item-value">45</span> S
-                                    </div>
+                                    </div> -->
+                                    {{$product->bid_ending_date}}
                                 </div>
                             </div>
                         </a>
@@ -40,7 +41,7 @@
                         <div class="prdouct-card-content">
                             <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
                             <div class="product-bid">
-                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                                Current Bid : <span class="bid-amount">{{$product->starting_bid_price}}</span>
                             </div>
                         </div>
                     </div>
