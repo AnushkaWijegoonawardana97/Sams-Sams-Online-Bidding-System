@@ -65,4 +65,9 @@ class LandingPageController extends Controller
             return view('landingPage.product', compact('product', $product))->with('bidends', $bidends)->with('category', $category)->with('products', $products);
         }
     }
+
+     public function checkoutPage()
+    {
+        return view('landingPage.checkout');
+    }
 }

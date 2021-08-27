@@ -70,18 +70,18 @@
                         Minimum bid value is 2000
                     </div>
 
-                    <form>
+                    <div>
                         <div class="form-row mx-auto">
                             <div class="col-md-4"><p class="lead">Make Your Bid</p></div>
                             <div class="col-md-4">
                                 <input type="number" class="form-control" min="20000" value="220000" step="2000">
                             </div>
                             <div class="col-md-4">
-                                <a href="" class="btn btn-primary btn-block">Confirm Your Bid</a>
+                                <a href="{{route('landing.checkout')}}" class="btn btn-primary btn-block">Confirm Your Bid</a>
                                 <!-- <input type="button" class="btn btn-primary btn-block" value="Confirm Your Bid"> -->
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
