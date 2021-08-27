@@ -168,7 +168,7 @@
         <hr class="mb-4">
         </form>
 
-        <a href="" class="btn btn-block btn-primary btn-lg">Continue to checkout</a>
+        <a href="{{route('landing.thankyou')}}" class="btn btn-block btn-primary btn-lg">Continue to checkout</a>
     </div>
 </div>
 @endsection
