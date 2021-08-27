@@ -34,11 +34,11 @@
             </div>
 
             <div class="col-md-6">
-                <h2 class="font-weight-bold">{{$product->product_name}}</h2>
+                <h2 class="font-weight-bold mb-4">{{$product->product_name}}</h2>
 
-                <p>{{$product->special_product_notes}}</p>
+                <p class="mb-5">{{$product->special_product_notes}}</p>
 
-                {{$bidends}}
+                <h4 class="text-primary">Bid Started at : {{$product->starting_bid_price}} LKR</h4>
             </div>
         </div>
     </section>
