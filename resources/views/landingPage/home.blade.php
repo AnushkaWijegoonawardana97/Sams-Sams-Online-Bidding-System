@@ -32,8 +32,28 @@
     </section>
 
     <!-- Homepahe Features Section -->
-    <section class="primary-section-padding text-center" id="">
-        Features Section
+    <section class="primary-ccontainer primary-section-padding text-center pb-0" id="">
+        <div class="d-flex align-items-center justify-content-between" id="featuredBox">
+            <div class="mx-4 d-flex align-items-center justify-content-start border border-primary p-3 rounded">
+                <i class="fas fa-truck fa-4x text-primary mr-4"></i>
+                <p class="lead font-weight-bold mb-0 text-muted">Island Wide Delivery</p>
+            </div>
+
+            <div class="mx-4 d-flex align-items-center justify-content-start border border-primary p-3 rounded">
+                <i class="fas fa-headset fa-4x text-primary mr-4"></i>
+                <p class="lead font-weight-bold mb-0 text-muted">24/7 Helping Center</p>
+            </div>
+
+            <div class="mx-4 d-flex align-items-center justify-content-start border border-primary p-3 rounded">
+                <i class="fas fa-money-check-alt fa-4x text-primary mr-4"></i>
+                <p class="lead font-weight-bold mb-0 text-muted">Secure Online Payments</p>
+            </div>
+
+            <div class="mx-4 d-flex align-items-center justify-content-start border border-primary p-3 rounded">
+                <i class="fas fa-certificate fa-4x text-primary mr-4"></i>
+                <p class="lead font-weight-bold mb-0 text-muted">Certified By The Government</p>
+            </div>
+        </div>
     </section>
 
     <!-- Latest Auctions -->
@@ -47,44 +67,47 @@
         <!-- Product List Grid -->
         <div class="product-list-grid">
             @foreach($products as $product)
-                <!-- Product Card -->
-                <div class="product-card" id="product-card">
-                    <div class="product-card-icons">
-                        <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                        <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                    </div>
+                @if(!$product->isExpiredBid())
+                    <!-- Product Card -->
+                    <div class="product-card" id="product-card">
+                        <div class="product-card-icons">
+                            <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
+                            <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                        </div>
 
-                    <a href="">
-                        <div class="product-card-img">
-                            <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                        <a href="{{route('landing.product', $product->id)}}">
+                            <div class="product-card-img">
+                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
-                            <div class="bid-ends d-flex align-items-center justify-content-center">
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">12</span> D
-                                </div>
+                                <div class="bid-ends d-flex align-items-center justify-content-center">
+                                    <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">12</span> D
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">4</span> H
-                                </div>
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">4</span> H
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">6</span> M
-                                </div>
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">6</span> M
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">45</span> S
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">45</span> S
+                                    </div> -->
+                                    {{$product->bid_ending_date}}
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
 
-                    <div class="prdouct-card-content">
-                        <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
-                        <div class="product-bid">
-                            Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                        <div class="prdouct-card-content">
+                            <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
+                            <div class="product-bid">
+                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </section>
@@ -100,57 +123,60 @@
         <!-- Product List Grid -->
         <div class="product-list-grid">
             @foreach($products as $product)
-                <!-- Product Card -->
-                <div class="product-card" id="product-card">
-                    <div class="product-card-icons">
-                        <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                        <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                    </div>
+                @if(!$product->isExpiredBid())
+                    <!-- Product Card -->
+                    <div class="product-card" id="product-card">
+                        <div class="product-card-icons">
+                            <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
+                            <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                        </div>
 
-                    <a href="">
-                        <div class="product-card-img">
-                            <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                        <a href="{{route('landing.product', $product->id)}}">
+                            <div class="product-card-img">
+                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
-                            <div class="bid-ends d-flex align-items-center justify-content-center">
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">12</span> D
-                                </div>
+                                <div class="bid-ends d-flex align-items-center justify-content-center">
+                                    <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">12</span> D
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">4</span> H
-                                </div>
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">4</span> H
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">6</span> M
-                                </div>
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">6</span> M
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">45</span> S
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">45</span> S
+                                    </div> -->
+                                    {{$product->bid_ending_date}}
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
 
-                    <div class="prdouct-card-content">
-                        <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
-                        <div class="product-bid">
-                            Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                        <div class="prdouct-card-content">
+                            <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
+                            <div class="product-bid">
+                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </section>
 
     <!-- Section Information Banner -->
-    <section class="primary-section-padding text-center" id="">
+    <!-- <section class="primary-section-padding text-center" id="">
         Section Information Banner
-    </section>
+    </section> -->
 
     <!-- Category Slider -->
-    <section class="primary-section-padding text-center" id="">
+    <!-- <section class="primary-section-padding text-center" id="">
         Category Slider
-    </section>
+    </section> -->
 
     <!-- Auctions Ending Soon -->
     <section class="product-list-container text-center primary-ccontainer primary-section-padding" id="product-list-container">
@@ -162,53 +188,56 @@
 
         <!-- Product List Grid -->
         <div class="product-list-grid">
-            @foreach($products as $product)
-                <!-- Product Card -->
-                <div class="product-card" id="product-card">
-                    <div class="product-card-icons">
-                        <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                        <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
-                    </div>
+             @foreach($products as $product)
+                @if(!$product->isExpiredBid())
+                    <!-- Product Card -->
+                    <div class="product-card" id="product-card">
+                        <div class="product-card-icons">
+                            <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
+                            <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                        </div>
 
-                    <a href="">
-                        <div class="product-card-img">
-                            <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                        <a href="{{route('landing.product', $product->id)}}">
+                            <div class="product-card-img">
+                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
 
-                            <div class="bid-ends d-flex align-items-center justify-content-center">
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">12</span> D
-                                </div>
+                                <div class="bid-ends d-flex align-items-center justify-content-center">
+                                    <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">12</span> D
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">4</span> H
-                                </div>
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">4</span> H
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">6</span> M
-                                </div>
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">6</span> M
+                                    </div>
 
-                                <div class="bidend-item d-flex aligin-items-center justify-content-center">
-                                    <span class="bidend-item-value">45</span> S
+                                    <div class="bidend-item d-flex aligin-items-center justify-content-center">
+                                        <span class="bidend-item-value">45</span> S
+                                    </div> -->
+                                    {{$product->bid_ending_date}}
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
 
-                    <div class="prdouct-card-content">
-                        <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
-                        <div class="product-bid">
-                            Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                        <div class="prdouct-card-content">
+                            <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
+                            <div class="product-bid">
+                                Current Bid : <span class="bid-amount">LKR 1000.00</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </section>
 
     <!-- Seller Register Banner -->
-    <section class="primary-section-padding text-center" id="">
+    <!-- <section class="primary-section-padding text-center" id="">
         Seller Register Banner
-    </section>
+    </section> -->
 @endsection
 
 @section('additional-scripts')
