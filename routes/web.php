@@ -33,6 +33,7 @@ Route::post('createBuyer', 'AuthPageController@createBuyer')->name('auth.createB
 Route::get('shop', 'LandingPageController@shopPage')->name('landing.shop');
 Route::get('shop/{id}', 'LandingPageController@productPage')->name('landing.product');
 Route::get('checkout', 'LandingPageController@checkoutPage')->name('landing.checkout');
+Route::get('thankyou', 'LandingPageController@thankYouPage')->name('landing.thankyou');
 
 
 //admin routes

@@ -70,4 +70,9 @@ class LandingPageController extends Controller
     {
         return view('landingPage.checkout');
     }
+
+     public function thankYouPage()
+    {
+        return view('landingPage.thankyou');
+    }
 }
