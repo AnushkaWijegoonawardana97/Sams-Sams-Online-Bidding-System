@@ -1,7 +1,7 @@
 <!-- Mobile Overlayer Navigation -->
 <section class="mobile-overlayer-navigation d-flex align-items-center justify-content-center" id="mobile-ovelayer-navigation">
     <!-- Mobile Close Nav Button -->
-    <a href="#" class="mobile-closenav-button" id="mobile-closenav-button"><i class="fas fa-times"></i></a>
+    <a href="" class="mobile-closenav-button" id="mobile-closenav-button"><i class="fas fa-times"></i></a>
 
     <!-- Overlayer Navlink Content -->
     <ul class="overlayer-navcontent">
@@ -47,7 +47,7 @@
         <!-- Top Header -->
         <nav class="top-header-nav d-flex align-items-center">
             <!-- Navbar Branding -->
-            <a href="" class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <img width="175" height="50" src="{{asset('img/Logo.png')}}" alt="Sams & Sams Logo">
             </a>
 

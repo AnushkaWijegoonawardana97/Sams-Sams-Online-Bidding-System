@@ -77,7 +77,7 @@
 
                         <a href="{{route('landing.product', $product->id)}}">
                             <div class="product-card-img">
-                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                                <img src="{{asset('img/product-image-01.webp')}}" alt="" width="300" height="300">
 
                                 <div class="bid-ends d-flex align-items-center justify-content-center">
                                     <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">
@@ -133,7 +133,7 @@
 
                         <a href="{{route('landing.product', $product->id)}}">
                             <div class="product-card-img">
-                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                                <img src="{{asset('img/product-image-01.webp')}}" alt="" width="300" height="300">
 
                                 <div class="bid-ends d-flex align-items-center justify-content-center">
                                     <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">
@@ -199,7 +199,7 @@
 
                         <a href="{{route('landing.product', $product->id)}}">
                             <div class="product-card-img">
-                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                                <img src="{{asset('img/product-image-01.webp')}}" alt="" width="300" height="300">
 
                                 <div class="bid-ends d-flex align-items-center justify-content-center">
                                     <!-- <div class="bidend-item d-flex aligin-items-center justify-content-center">

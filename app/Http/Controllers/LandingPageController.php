@@ -59,8 +59,10 @@ class LandingPageController extends Controller
         $date2 = Carbon::now();
         $bidends = $date1->diffForHumans($date2);
 
+        $products = Product::all()->sortByDesc('created_at');
+
         if($product) {
-            return view('landingPage.product', compact('product', $product))->with('bidends', $bidends)->with('category', $category);
+            return view('landingPage.product', compact('product', $product))->with('bidends', $bidends)->with('category', $category)->with('products', $products);
         }
     }
 }
