@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-primary">
-                        <form id="quickForm" novalidate="novalidate" action="{{ route('product_category.store') }}" method="POST">
+                        <form id="quickForm" novalidate="novalidate" action="{{ route('product_category.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -40,6 +40,20 @@
                                     <label for="categorydescription">Category Description</label>
                                     <textarea name="category_description" class="form-control" id="categorydescription" placeholder="Enter category description" aria-describedby="categorydescription-error" spellcheck="true" cols="20" rows="10"></textarea>
                                     <span id="categorydescription-error" class="error invalid-feedback">Please enter a category description</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <label for="category_image">Category Image</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="category_image" name="category_image[]">
+                                                <label class="custom-file-label" for="category_image">Upload your category image file</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery col-md-3 ml-auto"></div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -54,4 +68,35 @@
     </section>
 @endsection
 
+@section('additional-scripts')
+<script>
+    tinymce.init({
+        selector: '#categorydescription'
+    });
 
+    $(function() {
+        // Multiple images preview in browser
+        var imagesPreview = function(input, placeToInsertImagePreview) {
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img>')).attr('src', event.target.result).attr('class', "product-category-img").appendTo(placeToInsertImagePreview);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+
+        };
+
+        $('#category_image').on('change', function() {
+            imagesPreview(this, 'div.gallery');
+        });
+    });
+</script>
+@endsection
