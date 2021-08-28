@@ -63,8 +63,13 @@
                                         # {{$category->id}} 
                                     </th>
 
-                                    <td class="text-center">
-                                        <img alt="Avatar" class="table-avatar" src="https://adminlte.io/themes/v3/dist/img/avatar.png">
+                                    <td>
+                                        @php
+                                            $catImages = explode('|', $category->category_image);
+                                        @endphp
+                                        @foreach($catImages as $image)
+                                            <img alt="Avatar" class="table-avatar" src="{{asset($image)}}">
+                                        @endforeach
                                     </td>
 
                                     <td>
@@ -72,7 +77,7 @@
                                     </td>
 
                                     <td>
-                                        {{$category->category_description}}
+                                        {!! $category->category_description !!}
                                     </td>
 
                                     <td class="project-actions text-right d-flex align-items-center justify-content-center">

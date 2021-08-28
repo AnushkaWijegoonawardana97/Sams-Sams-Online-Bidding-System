@@ -28,12 +28,23 @@ class ProductCategoryController extends Controller
             'category_description' => 'required'
         ]);
 
+        $image = array();
+        if($files = $request->category_image) {
+            foreach ($files as $file) {
+                $image_name = md5(rand(1000, 10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name. '.' .$ext;
+                $upload_path = "images/product_category/";
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
+            }
+        }
+
         $category = new ProductCategory();
-
         $category->category_name = $request->category_name;
-
         $category->category_description = $request->category_description;
-
+        $category->category_image = implode('|', $image);
         $category->save();
 
         activity('New Product Category')->performedOn($category)->log('New product category created - Dashboard Activity');
@@ -59,11 +70,26 @@ class ProductCategoryController extends Controller
 
         $category = ProductCategory::find($id);
 
+        $image = array();
+        if($files = $request->category_image) {
+            foreach ($files as $file) {
+                $image_name = md5(rand(1000, 10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name. '.' .$ext;
+                $upload_path = "images/product_category/";
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
+            }
+        } else {
+            $image[] = $category->category_image;
+        }
+
+
         if($category) {
             $category->category_name = $request->category_name;
-
             $category->category_description = $request->category_description;
-
+            $category->category_image = implode('|', $image);
             $category->save();
 
             activity('Product Category Updated')->performedOn($category)->log('Product category has been updated - Dashboard Activity');

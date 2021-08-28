@@ -7,6 +7,10 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+
+    @yield('additional-css')
+
+    <script src="https://cdn.tiny.cloud/1/v50cqqbaig8dy04ilqct4b5kyzlv2v78fsmmhtqxgekfd14j/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
