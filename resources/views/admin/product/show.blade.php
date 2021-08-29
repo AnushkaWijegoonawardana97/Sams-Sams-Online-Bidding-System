@@ -41,21 +41,27 @@
                                 <div class="col-md-4">
                                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            @if($product->product_images)
+                                                @php
+                                                    $prodImages = explode('|', $product->product_images);
+                                                @endphp
+                                                @foreach($prodImages as $key=>$value)
+                                                    <li data-target="#carouselExampleIndicators" data-slide-to={{$key}} class="@if($key === 0) active @endif"></li>
+                                                @endforeach
+                                            @endif
                                         </ol>
 
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img class="d-block w-100" src="https://adminlte.io/themes/v3/dist/img/prod-1.jpg" alt="First slide">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="https://adminlte.io/themes/v3/dist/img/prod-1.jpg" alt="Second slide">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="https://adminlte.io/themes/v3/dist/img/prod-1.jpg" alt="Third slide">
-                                            </div>
+                                            @if($product->product_images)
+                                                @php
+                                                    $prodImages = explode('|', $product->product_images);
+                                                @endphp
+                                                @foreach($prodImages as $key=>$value)
+                                                    <div class="carousel-item @if($key === 0) active @endif">
+                                                        <img class="d-block w-100" src="{{asset($value)}}" alt="First slide">
+                                                    </div>
+                                                @endforeach
+                                            @endif
                                         </div>
 
                                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -74,11 +80,11 @@
 
                                     <hr>
                                     
-                                    <p class="">{{$product->product_description}}</p>
+                                    <p class="">{!! $product->product_description !!}</p>
                                     
                                     <hr>
                                     <h6 class="font-weight-bold">Special Product Description</h6>
-                                    <p >{{$product->special_product_notes}}</p>
+                                    <p >{!! $product->special_product_notes !!}</p>
 
                                     <hr>
 

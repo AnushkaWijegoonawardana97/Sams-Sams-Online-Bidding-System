@@ -60,94 +60,47 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if(Auth::user()->id === 1)
-                                @foreach($products as $product)
-                                    @if(!$product->isExpiredBid())
-                                        <th>
-                                                # {{$product->id}} 
-                                            </th>
-                                            <td>
-                                                {{$product->product_name}} 
-                                            </td>
-                                            <td>
-                                                {{$product->product_description}}  
-                                            </td>
-                                            <td>
-                                                {{$product->starting_bid_price}}  
-                                            </td>
-                                            <td>
-                                                {{$product->bid_ending_date}}  
-                                            </td>
-                                            <td class="project-actions text-right d-flex align-items-center justify-content-center">
-                                                <a class="btn btn-info btn-sm mr-2" href="{{ route('product.show', $product->id) }}">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    View
-                                                </a>
-                                                <a class="btn btn-warning btn-sm mr-2 " href="{{ route('product.edit', $product->id) }}">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    Edit
-                                                </a>
-                                                <form action="{{ route('product.delete', $product->id) }}" method="post">
-                                                    @csrf
-                                                    {{ method_field('delete') }}
-                                                    <button class="btn btn-danger btn-sm" type="submit">
-                                                        <i class="fas fa-trash">
-                                                    </i>
-                                                    Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            @else
-                                @foreach($products as $product)
-                                    @if(!$product->isExpiredBud())
-                                        @if($product->user_id === Auth::user()->id)
-                                            <tr>
-                                                <th>
-                                                    # {{$product->id}} 
-                                                </th>
-                                                <td>
-                                                    {{$product->product_name}} 
-                                                </td>
-                                                <td>
-                                                    {{$product->product_description}}  
-                                                </td>
-                                                <td>
-                                                    {{$product->starting_bid_price}}  
-                                                </td>
-                                                <td>
-                                                    {{$product->bid_ending_date}}  
-                                                </td>
-                                                <td class="project-actions text-right d-flex align-items-center justify-content-center">
-                                                    <a class="btn btn-info btn-sm mr-2" href="{{ route('product.show', $product->id) }}">
-                                                        <i class="fas fa-pencil-alt">
-                                                        </i>
-                                                        View
-                                                    </a>
-                                                    <a class="btn btn-warning btn-sm mr-2 " href="{{ route('product.edit', $product->id) }}">
-                                                        <i class="fas fa-pencil-alt">
-                                                        </i>
-                                                        Edit
-                                                    </a>
-                                                    <form action="{{ route('product.delete', $product->id) }}" method="post">
-                                                        @csrf
-                                                        {{ method_field('delete') }}
-                                                        <button class="btn btn-danger btn-sm" type="submit">
-                                                            <i class="fas fa-trash">
-                                                        </i>
-                                                        Delete
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @endif
-                                @endforeach
-                            @endif
+                            @foreach($products as $product)
+                                @if(!$product->isExpiredBid())
+                                    <th>
+                                            # {{$product->id}} 
+                                        </th>
+                                        <td>
+                                            {{$product->product_name}} 
+                                        </td>
+                                        <td>
+                                            {!! $product->product_description !!}  
+                                        </td>
+                                        <td>
+                                            {{$product->starting_bid_price}}  
+                                        </td>
+                                        <td>
+                                            {{$product->bid_ending_date}}  
+                                        </td>
+                                        <td class="project-actions text-right d-flex align-items-center justify-content-center">
+                                            <a class="btn btn-info btn-sm mr-2" href="{{ route('product.show', $product->id) }}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                View
+                                            </a>
+                                            <a class="btn btn-warning btn-sm mr-2 " href="{{ route('product.edit', $product->id) }}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('product.delete', $product->id) }}" method="post">
+                                                @csrf
+                                                {{ method_field('delete') }}
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

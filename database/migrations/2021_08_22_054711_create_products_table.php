@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->decimal('min_bid_price', 10, 2);
             $table->datetime('bid_ending_date');    
             $table->text('special_product_notes')->nullable();    
+            $table->string('product_images')->nullable();    
             $table->string('inspection_video')->nullable();    
             $table->string('status');
             $table->unsignedBigInteger('category_id');
