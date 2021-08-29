@@ -135,9 +135,14 @@
                                 <div class="form-group">
                                     <label for="product_images">Product Images</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="product_images" name="product_images[]" multiple>
+                                        <input type="file" class="custom-file-input @error('product_images') is-invalid @enderror" id="product_images" name="product_images[]" multiple>
                                         <label class="custom-file-label" for="product_images">Upload your prouct image files</label>
                                     </div>
+                                    @error('product_images')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <!-- Gallery -->
