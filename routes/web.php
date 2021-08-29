@@ -60,5 +60,23 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/update/{id}', 'Admin\ProductController@update')->name('product.update');
             Route::delete('/delete/{id}', 'Admin\ProductController@delete')->name('product.delete');
         });
+
+        Route::group(['prefix' => 'product-inspections'], function () {
+            Route::get('/', 'Admin\ProductInspectionController@index')->name('product_inspection.index');
+            Route::get('/create', 'Admin\ProductInspectionController@create')->name('product_inspection.create');
+            Route::post('/store', 'Admin\ProductInspectionController@store')->name('product_inspection.store');
+            Route::get('/edit/{id}', 'Admin\ProductInspectionController@show')->name('product_inspection.show');
+            Route::put('/update/{id}', 'Admin\ProductInspectionController@update')->name('product_inspection.update');
+            Route::delete('/delete/{id}', 'Admin\ProductInspectionController@delete')->name('product_inspection.delete');
+        });
+    });
+});
+
+//admin routes
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'seller'], function () {
+
+        Route::get('dashboard', "Seller\DashboardController@dashboard")->name('seller.dashboard');
+
     });
 });

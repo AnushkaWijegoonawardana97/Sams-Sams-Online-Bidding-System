@@ -45,7 +45,7 @@ class LoginController extends Controller
             if(Auth::user()->hasRole('super_admin')) {
                 return redirect()->route('admin.dashboard');
             } else if (Auth::user()->hasRole('seller')) {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('seller.dashboard');
             } else {
                 return redirect()->route('landing.home');
             }

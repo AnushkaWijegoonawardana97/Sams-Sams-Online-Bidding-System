@@ -143,29 +143,6 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item">
-                        <a href="{{ route('product_category.index') }}" class="nav-link {{ Request::is('admin/product-category*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Product Category
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('product_category.create') }}" class="nav-link {{ Request::is('admin/product-category/create') ? 'active' : '' }}">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Add Product Category</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('product_category.index') }}" class="nav-link {{ Request::is('admin/product-category') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Product Categories</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="nav-item">   
                         <a href="{{ route('product.index') }}" class="nav-link  {{ Request::is('admin/products*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-boxes"></i>
@@ -218,12 +195,6 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Add New Bid</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>All Biddings</p>
                                 </a>
@@ -249,93 +220,6 @@
                                 <a href="" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Ongoing Delivery</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Delivery Orders</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="nav-icon fas fa-user-tag"></i>
-                            <p>
-                                Buyers
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Create Buyer Account</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Buyers</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="nav-icon fas fa-user-tie"></i>
-                            <p>
-                                Sellers
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Create Seller Account</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Sellers</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Users
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Create Admin User</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Admin Users</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Create Delivery User</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Delivery Users</p>
                                 </a>
                             </li>
                         </ul>
