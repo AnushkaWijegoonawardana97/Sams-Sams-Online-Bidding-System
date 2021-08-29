@@ -107,7 +107,7 @@
 
                                         <div class="col-md-4">
                                             <label for="bid_ending_date">Bid Closing Date</label>
-                                            <input type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" placeholder="Enter bid closing date" aria-describedby="bid_ending_date-error" aria-invalid="true">
+                                            <input type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" placeholder="Enter bid closing date" aria-describedby="bid_ending_date-error" aria-invalid="true" min={{$todaysDate}}>
                                             @error('bid_ending_date')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -134,6 +134,9 @@
                                         <label class="custom-file-label" for="product_images">Upload your prouct image files</label>
                                     </div>
                                 </div>
+
+                                <!-- Gallery -->
+                                <div class="row mt-5 image-gallery"></div>
             
                                 <input class="form-control" name="product_seller" type="hidden" placeholder="" value="{{Auth::user()->id}}">
                             </div>
@@ -149,4 +152,46 @@
     </section>
 @endsection
 
+@section('additional-scripts')
+<script>
+    tinymce.init({
+        selector: '#product_description',
+    });
+    tinymce.init({
+        selector: '#special_product_notes',
+    });
 
+    $(function() {
+        // Multiple images preview in browser
+        var imagesPreview = function(input, placeToInsertImagePreview) {
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $(`
+                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                <img
+                                    src="${event.target.result}"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt=""
+                                />
+                            </div>
+                        `).appendTo(placeToInsertImagePreview);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+
+        };
+
+        $('#product_images').on('change', function() {
+            imagesPreview(this, 'div.image-gallery');
+        });
+    });
+</script>
+@endsection

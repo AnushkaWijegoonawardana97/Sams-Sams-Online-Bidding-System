@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductCategory;
+use App\ProductImage;
 use App\Seller;
 use App\Sell;
 use Spatie\Activitylog\Contracts\Activity;
@@ -25,7 +26,10 @@ class ProductController extends Controller
     public function create()
     {
         $categories = ProductCategory::all();
-        return view('admin.product.create', compact('categories', $categories));
+        $datetime = Carbon::now();
+        $todaysDate = date('Y-m-d\TH:i', strtotime($datetime));
+
+        return view('admin.product.create', compact('categories', $categories))->with('todaysDate', $todaysDate);
     }
 
     public function store(Request $request)
@@ -41,10 +45,16 @@ class ProductController extends Controller
             'product_images' => 'required'
         ]);
 
-        $productomages = array();
+        $image = array();
         if($files = $request->product_images) {
             foreach ($files as $file) {
-                
+                $image_name = md5(rand(1000, 10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name. '.' .$ext;
+                $upload_path = "images/product/";
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
             }
         }
 
@@ -57,10 +67,12 @@ class ProductController extends Controller
         $product->bid_ending_date = $request->bid_ending_date;
         $product->special_product_notes = $request->special_product_notes;
         $product->inspection_video = $request->inspection_video;
+        $product->product_images =  implode('|', $image);
         $product->status = "Active";    
         $product->category_id = $request->product_category;
         $product->user_id = $request->product_seller;
         $product->save();
+
 
         activity('New Product')->performedOn($product)->log('New product category created - Dashboard Activity');
 
@@ -87,8 +99,11 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
         $product = Product::find($id);
 
+        $datetime = Carbon::now();
+        $todaysDate = date('Y-m-d\TH:i', strtotime($datetime));
+
         if($product) {
-            return view('admin.product.edit', compact('product', $product))->with('categories', $categories);
+            return view('admin.product.edit', compact('product', $product))->with('categories', $categories)->with('todaysDate', $todaysDate);
         }
     }
 
@@ -106,6 +121,21 @@ class ProductController extends Controller
 
         $product = Product::find($id);
 
+        $image = array();
+        if($files = $request->product_images) {
+            foreach ($files as $file) {
+                $image_name = md5(rand(1000, 10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name. '.' .$ext;
+                $upload_path = "images/product/";
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
+            }
+        } else {
+            $image[] = $request->old_product_images;
+        }
+
         if($product) {
             $product->product_name = $request->product_name;
             $product->product_description = $request->product_description;
@@ -115,11 +145,10 @@ class ProductController extends Controller
             $product->bid_ending_date = $request->bid_ending_date;
             $product->special_product_notes = $request->special_product_notes;
             $product->inspection_video = $request->inspection_video;
+            $product->product_images = implode('|', $image);
             $product->status = "Active";    
             $product->category_id = $request->product_category;
-
             $product->save();
-
             activity('Product Updated')->performedOn($product)->log('Product has been updated - Dashboard Activity');
         }
 

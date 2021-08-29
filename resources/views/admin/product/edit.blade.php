@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-12 m-auto">
                     <div class="card card-primary">
-                        <form id="quickForm" novalidate="novalidate" action="{{ route('product.update', $product->id) }}" method="POST">
+                        <form id="quickForm" novalidate="novalidate" action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             {{ method_field('put') }}
                             <div class="card-body">
@@ -108,8 +108,11 @@
                                         </div>
 
                                         <div class="col">
+                                            @php
+                                                $todaysDate = date('Y-m-d\TH:i', strtotime($product->bid_ending_date));
+                                            @endphp
                                             <label for="bid_ending_date">Bid Closing Date</label>
-                                            <input  type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" aria-describedby="bid_ending_date-error" aria-invalid="true">
+                                            <input  type="datetime-local" name="bid_ending_date" class="form-control @error('bid_ending_date') is-invalid @enderror" id="bid_ending_date" aria-describedby="bid_ending_date-error" aria-invalid="true" min={{$todaysDate}} value={{$todaysDate}}>
                                             @error('bid_ending_date')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -128,6 +131,33 @@
                                         </span>
                                     @enderror
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="product_images">Product Images</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="product_images" name="product_images[]" multiple>
+                                        <label class="custom-file-label" for="product_images">Upload your prouct image files</label>
+                                    </div>
+                                </div>
+
+                                <!-- Gallery -->
+                                <div class="row mt-5 image-gallery">
+                                    @if($product->product_images)
+                                        <input class="form-control" name="old_product_images" type="hidden" placeholder="" value="{{$product->product_images}}">
+                                        @php
+                                            $prodImages = explode('|', $product->product_images);
+                                        @endphp
+                                        @foreach($prodImages as $prodImage)
+                                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 currentImg">
+                                                <img
+                                                    src="{{asset($prodImage)}}"
+                                                    class="w-100 shadow-1-strong rounded mb-4"
+                                                    alt=""
+                                                />
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
@@ -140,8 +170,50 @@
         </div>
     </section>
 @endsection
+
 @section('additional-scripts')
 <script>
+    tinymce.init({
+        selector: '#product_description',
+    });
+    tinymce.init({
+        selector: '#special_product_notes',
+    });
+
+    $(function() {
+        // Multiple images preview in browser
+        var imagesPreview = function(input, placeToInsertImagePreview) {
+            $( ".currentImg" ).remove();
+
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $(`
+                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                <img
+                                    src="${event.target.result}"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt=""
+                                />
+                            </div>
+                        `).appendTo(placeToInsertImagePreview);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+
+        };
+
+        $('#product_images').on('change', function() {
+            imagesPreview(this, 'div.image-gallery');
+        });
+    });
 </script>
 @endsection
 

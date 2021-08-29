@@ -42,14 +42,22 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="categoryname">Category Name</label>
-                                    <input type="text" name="category_name" class="form-control" id="categoryname" placeholder="Enter category name" value="{{$category->category_name}}" aria-describedby="categoryname-error" aria-invalid="true">
-                                    <span id="categoryname-error" class="error invalid-feedback">Please enter a category name</span>
+                                    <input type="text" name="category_name" class="form-control @error('category_name') is-invalid @enderror" id="categoryname" placeholder="Enter category name" value="{{$category->category_name}}" aria-describedby="categoryname-error" aria-invalid="true">
+                                    @error('category_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="categorydescription">Category Description</label>
-                                    <textarea name="category_description" class="form-control" id="categorydescription" placeholder="Enter category description" aria-describedby="categorydescription-error" spellcheck="true" cols="20" rows="10">{!! $category->category_description !!}</textarea>
-                                    <span id="categorydescription-error" class="error invalid-feedback">Please enter a category description</span>
+                                    <textarea name="category_description" class="form-control  @error('category_description') is-invalid @enderror" id="categorydescription" placeholder="Enter category description" aria-describedby="categorydescription-error" spellcheck="true" cols="20" rows="10">{!! $category->category_description !!}</textarea>
+                                    @error('category_description')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
