@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-primary">
-                        <form id="quickForm" novalidate="novalidate" action="{{ route('product_category.store') }}" method="POST" enctype="multipart/form-data">
+                        <form id="quickForm" novalidate="novalidate" action="{{ route('product_inspection.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -35,7 +35,9 @@
                                         <div class="col-md-6">
                                             <label for="product_id">Product</label>
                                             <select class="form-control" id="product_id" name="product_id">
-                                                <option value="brand new">Brand New</option>
+                                                @foreach($products as $product)
+                                                <option value={{$product->id}}>{{$product->product_name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 
