@@ -199,12 +199,12 @@
                                     <p>All Inspection Times</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Scheduled Inspections</p>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                     <li class="nav-item">
