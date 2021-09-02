@@ -46,7 +46,9 @@
                                             <label for="product_id">Product</label>
                                             <select class="form-control" id="product_id" name="product_id">
                                                 @foreach($products as $product)
-                                                    <option value={{$product->id}} @if($inspection->product_id == $product->id) selected @endif>{{$product->product_name}}</option>
+                                                    @if(!$product->isExpiredBid())
+                                                        <option value={{$product->id}} @if($inspection->product_id == $product->id) selected @endif>{{$product->product_name}}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
