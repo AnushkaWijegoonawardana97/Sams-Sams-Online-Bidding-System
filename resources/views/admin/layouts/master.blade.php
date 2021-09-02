@@ -199,16 +199,10 @@
                                     <p>All Inspection Times</p>
                                 </a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Scheduled Inspections</p>
-                                </a>
-                            </li> -->
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('product_bids.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-gavel"></i>
                             <p>
                                 Biddings
@@ -217,13 +211,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('product_bids.list') }}" class="nav-link">
                                     <i class="fas fa-plus nav-icon"></i>
                                     <p>Add New Bid</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('product_bids.index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>All Biddings</p>
                                 </a>

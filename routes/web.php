@@ -69,6 +69,16 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/update/{id}', 'Admin\ProductInspectionController@update')->name('product_inspection.update');
             Route::delete('/delete/{id}', 'Admin\ProductInspectionController@delete')->name('product_inspection.delete');
         });
+        
+        Route::group(['prefix' => 'product-bids'], function () {
+            Route::get('/', 'Admin\ProductBidsController@index')->name('product_bids.index');
+            Route::get('/list', 'Admin\ProductBidsController@list')->name('product_bids.list');
+            Route::get('/create/{id}', 'Admin\ProductBidsController@create')->name('product_bids.create');
+            Route::post('/store', 'Admin\ProductBidsController@store')->name('product_bids.store');
+            Route::get('/edit/{id}', 'Admin\ProductBidsController@show')->name('product_bids.show');
+            Route::put('/update/{id}', 'Admin\ProductBidsController@update')->name('product_bids.update');
+            Route::delete('/delete/{id}', 'Admin\ProductBidsController@delete')->name('product_bids.delete');
+        });
     });
 });
 
