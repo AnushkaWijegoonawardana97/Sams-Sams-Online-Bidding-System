@@ -27,11 +27,11 @@ class ProductBidsController extends Controller
     public function create($id)
     {
         $product = Product::find($id);
-        $productbids = ProductBids::find($id);
+        $productbids = ProductBids::where('product_id', $id)->max("bid_price");
         $buyers = Buyer::all()->sortByDesc('created_at');
-
+        
         if($product) {
-            return view('admin.product-bids.create', compact('productbids', $productbids))->with("buyers", $buyers)->with('product',$product);
+            return view('admin.product-bids.create', compact('product', $product))->with("buyers", $buyers)->with('productbids', $productbids);
         }
     }
 
