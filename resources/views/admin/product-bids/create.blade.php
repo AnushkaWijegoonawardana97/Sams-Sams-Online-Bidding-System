@@ -58,7 +58,7 @@
                                         <div class="col-md-6">
                                             <label for="bid_price">Bidding Price</label>
                                             @if($productbids)
-                                                <input type="number" name="bid_price" class="form-control  @error('bid_price') is-invalid @enderror" id="bid_price" aria-describedby="bid_price-error" aria-invalid="true" step="{{$product->min_bid_price}}" value="{{$productbids::max('bid_price')}}">
+                                                <input type="number" name="bid_price" class="form-control  @error('bid_price') is-invalid @enderror" id="bid_price" aria-describedby="bid_price-error" aria-invalid="true" step="{{$product->min_bid_price}}" value="{{$productbids}}">
                                             @else
                                                 <input type="number" name="bid_price" class="form-control  @error('bid_price') is-invalid @enderror" id="bid_price" aria-describedby="bid_price-error" aria-invalid="true" step="{{$product->min_bid_price}}" value="{{$product->starting_bid_price}}">
                                             @endif
