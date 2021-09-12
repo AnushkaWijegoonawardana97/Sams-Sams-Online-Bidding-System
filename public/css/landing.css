@@ -17563,6 +17563,7 @@ input:focus {
   height: 3rem;
   width: 3rem;
   border-radius: 50px;
+  background-color: #ffffff;
   border: 2px solid #0654ae;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -17576,6 +17577,7 @@ input:focus {
 .product-card .product-card-icons .pci-bid-fav:hover {
   background-color: #0654ae;
   color: #ffffff;
+  border-color: #ffffff;
 }
 
 .product-card .product-card-img {
@@ -17586,6 +17588,8 @@ input:focus {
   width: 100%;
   min-height: 300px;
   border-radius: 0.5rem 0.5rem 0px 0px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .product-card .product-card-img .bid-ends {
@@ -17597,6 +17601,7 @@ input:focus {
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  min-width: 75%;
 }
 
 .product-card .product-card-img .bid-ends .bidend-item {
@@ -17605,7 +17610,6 @@ input:focus {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  color: #262626;
 }
 
 .product-card .product-card-img .bid-ends .bidend-item:first-child {
@@ -17621,7 +17625,6 @@ input:focus {
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
-  color: #ff9a01;
   padding: 0px 0.25rem;
 }
 
@@ -17630,9 +17633,9 @@ input:focus {
 }
 
 .product-card .prdouct-card-content .product-title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #262626;
-  line-height: 2rem;
+  line-height: 1.1rem;
   font-weight: 600;
   text-decoration: none;
 }

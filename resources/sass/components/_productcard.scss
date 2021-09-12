@@ -15,6 +15,7 @@
             height: 3rem;
             width: 3rem;
             border-radius: 50px;
+            background-color: $theme-white;
             border: 2px solid $theme-pblue;
             font-size: 1.5rem;
             line-height: 2rem;
@@ -26,6 +27,7 @@
             &:hover {
                 background-color: $theme-pblue;
                 color: $theme-white;
+                border-color: $theme-white;
             }
         }
     }
@@ -37,6 +39,7 @@
             width: 100%;
             min-height: 300px;
             border-radius: 0.5rem 0.5rem 0px 0px;
+            object-fit: cover;
         }
 
         .bid-ends {
@@ -48,6 +51,7 @@
             border-radius: 0.25rem;
             padding: 0.5rem 1rem;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            min-width: 75%;
 
             .bidend-item {
                 padding: 0px 0.5rem;
@@ -55,7 +59,6 @@
                 font-size: 1rem;
                 font-weight: 600;
                 text-decoration: none;
-                color: $theme-ptcolor;
                 &:first-child {
                     padding-left: 0px;
                 }
@@ -68,7 +71,6 @@
                     font-size: 1rem;
                     font-weight: 400;
                     text-decoration: none;
-                    color: $theme-porange;
                     padding: 0px 0.25rem;
                 }
             }
@@ -79,9 +81,9 @@
         padding: 2rem;
 
         .product-title {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: $theme-ptcolor;
-            line-height: 2rem;
+            line-height: 1.1rem;
             font-weight: 600;
             text-decoration: none;
         }

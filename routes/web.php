@@ -30,10 +30,13 @@ Route::post('createSeller', 'AuthPageController@createSeller')->name('auth.creat
 Route::post('createBuyer', 'AuthPageController@createBuyer')->name('auth.createBuyer');
 
 // Shop Routes
-Route::get('shop', 'LandingPageController@shopPage')->name('landing.shop');
-Route::get('shop/{id}', 'LandingPageController@productPage')->name('landing.product');
 Route::get('checkout', 'LandingPageController@checkoutPage')->name('landing.checkout');
 Route::get('thankyou', 'LandingPageController@thankYouPage')->name('landing.thankyou');
+
+Route::group(['prefix' => 'shop'], function () {
+    Route::get('/', 'ShoppageController@shopPage')->name('landing.shop');
+    Route::get('/{product_name}', 'ShoppageController@productPage')->name('landing.product');
+});
 
 
 //admin routes
@@ -78,6 +81,17 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/edit/{id}', 'Admin\ProductBidsController@show')->name('product_bids.show');
             Route::put('/update/{id}', 'Admin\ProductBidsController@update')->name('product_bids.update');
             Route::delete('/delete/{id}', 'Admin\ProductBidsController@delete')->name('product_bids.delete');
+        });
+
+        Route::group(['prefix' => 'delivery'], function () {
+            Route::get('/', 'Admin\DeliveryController@index')->name('delivery.index');
+            Route::get('/onging', 'Admin\DeliveryController@index')->name('delivery.ongoing');
+            Route::get('/order', 'Admin\DeliveryController@index')->name('delivery.order');
+            Route::get('/create', 'Admin\DeliveryController@create')->name('delivery.create');
+            Route::post('/store', 'Admin\DeliveryController@store')->name('delivery.store');
+            Route::get('/edit/{id}', 'Admin\DeliveryController@show')->name('delivery.show');
+            Route::put('/update/{id}', 'Admin\DeliveryController@update')->name('delivery.update');
+            Route::delete('/delete/{id}', 'Admin\DeliveryController@delete')->name('delivery.delete');
         });
     });
 });
