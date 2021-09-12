@@ -1,5 +1,5 @@
 @extends('landingPage.layouts.master')
-
+@section('title', 'Homepage - SAMS & SAMS')
 @section('content')
     <!-- Homepage Hero Slider -->
     <section class="hero-slider text-center" id="home-hero-slider">
@@ -32,7 +32,7 @@
     </section>
 
     <!-- Homepahe Features Section -->
-    <section class="primary-ccontainer primary-section-padding text-center pb-0" id="">
+    <!-- <section class="primary-ccontainer primary-section-padding text-center pb-0" id="">
         <div class="d-flex align-items-center justify-content-between" id="featuredBox">
             <div class="mx-4 d-flex align-items-center justify-content-start border border-primary p-3 rounded">
                 <i class="fas fa-truck fa-4x text-primary mr-4"></i>
@@ -54,7 +54,7 @@
                 <p class="lead font-weight-bold mb-0 text-muted">Certified By The Government</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Latest Auctions -->
     <section class="product-list-container text-center primary-ccontainer primary-section-padding" id="product-list-container">

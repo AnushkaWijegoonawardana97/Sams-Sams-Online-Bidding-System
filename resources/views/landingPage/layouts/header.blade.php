@@ -79,10 +79,10 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                        <!-- <a class="dropdown-item" href="#">Dashboard</a>
-                        <a class="dropdown-item" href="#">Account Settings</a> -->
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Account Settings</a>
                         <div class="dropdown-divider"></div>
-                        @hasanyrole('seller|super_admin')
+                        @hasanyrole('super_admin')
                             <a class="dropdown-item" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
                             <div class="dropdown-divider"></div>
                         @endhasanyrole

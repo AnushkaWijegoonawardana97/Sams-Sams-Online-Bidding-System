@@ -45,26 +45,6 @@ class LandingPageController extends Controller
         return view('landingPage.faq');
     }
     
-    public function shopPage()
-    {
-        $products = Product::all()->sortByDesc('created_at');
-        return view('landingPage.shop', compact('products', $products));
-    }
-
-    public function productPage($id) {
-        $product = Product::find($id);
-        $category = ProductCategory::find($product->category_id);
-        
-        $date1 = Carbon::parse($product->bid_ending_date);
-        $date2 = Carbon::now();
-        $bidends = $date1->diffForHumans($date2);
-
-        $products = Product::all()->sortByDesc('created_at');
-
-        if($product) {
-            return view('landingPage.product', compact('product', $product))->with('bidends', $bidends)->with('category', $category)->with('products', $products);
-        }
-    }
 
      public function checkoutPage()
     {
