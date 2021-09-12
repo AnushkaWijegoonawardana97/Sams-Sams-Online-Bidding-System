@@ -9,9 +9,9 @@
                 </a>
 
                 <div class="foooter-about-text">
-                    <P>Street addresses: 445 Mount</P> 
-                    <P>Eden Road, Mount Eden,</P> 
-                    <P>Auckland - Postcodes: 5022</P> 
+                    <P>Street addresses: No 001</P> 
+                    <P>Luis Place, Colombo,</P> 
+                    <P>Sri Lanka - Postcodes: 00500</P> 
                 </div>
             </div>
 
@@ -21,62 +21,58 @@
                 </div>
 
                 <div class="footer-social-links">
-                    <a href="" class="footer-social-link">
+                    <a href="https://www.facebook.com/" class="footer-social-link">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="" class="footer-social-link">
-                        <i class="fab fa-facebook"></i>
+                    <a href="https://www.instagram.com/" class="footer-social-link">
+                        <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="" class="footer-social-link">
-                        <i class="fab fa-facebook"></i>
+                    <a href="https://www.twitter.com/" class="footer-social-link">
+                        <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="" class="footer-social-link">
-                        <i class="fab fa-facebook"></i>
-                    </a>
+                    
                 </div>
             </div>
         </div>
 
         <!-- Footer Top Section Colums -->
         <div class="footer-column">
-            <div class="footer-column-header">COMPANY</div>
+            <div class="footer-column-header">Navigation</div>
 
             <div class="footer-column-links d-flex flex-column">
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
+                <a href="{{route('landing.home')}}" class="footer-link-item">Home</a>
+                <a href="{{route('landing.shop')}}" class="footer-link-item">Shop</a>
+                <a href="{{route('landing.about')}}" class="footer-link-item">About Us</a>
+                <a href="{{route('landing.contact')}}" class="footer-link-item">Contact</a>
             </div>
         </div>
 
         <!-- Footer Top Section Colums -->
         <div class="footer-column">
-            <div class="footer-column-header">COMPANY</div>
+            <div class="footer-column-header">Browse Retails</div>
 
             <div class="footer-column-links d-flex flex-column">
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
+            <a href="" class="footer-link-item">* Add Categories</a>
+                
             </div>
         </div>
 
         <!-- Footer Top Section Colums -->
         <div class="footer-column">
-            <div class="footer-column-header">COMPANY</div>
+            <div class="footer-column-header">Locations</div>
 
             <div class="footer-column-links d-flex flex-column">
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
-                <a href="" class="footer-link-item">Profile</a>
+                <a href="" class="footer-link-item">Colombo</a>
+                <a href="" class="footer-link-item">Kandy</a>
+                <a href="" class="footer-link-item">Badulla</a>
+                <a href="" class="footer-link-item">Gampaha</a>
             </div>
         </div>
     </section>
 
     <!-- Footer Section Bottom -->
     <section class="footer-bottom-section text-center">
-        <p>Copyright © 2019, Template</p>
+        <p>Copyright © 2021 | Sams & Sams</p>
     </section>
 </footer>
 
