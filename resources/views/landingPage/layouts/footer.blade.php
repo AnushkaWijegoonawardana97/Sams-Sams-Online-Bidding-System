@@ -37,7 +37,7 @@
 
         <!-- Footer Top Section Colums -->
         <div class="footer-column">
-            <div class="footer-column-header">Navigation</div>
+            <div class="footer-column-header">Sams & Sams</div>
 
             <div class="footer-column-links d-flex flex-column">
                 <a href="{{route('landing.home')}}" class="footer-link-item">Home</a>
