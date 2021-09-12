@@ -80,7 +80,7 @@
                             <h5 class="Display-4"><span class="fa fa-phone"></span>        Contact Number</h5>
                             <p>+94 777 123 1231</p>
 
-                            <a href="donate.html" class="btn btn-style btn-outline-primary mt-4"><span class="fa fa-shopping-cart mr-1"></span> Shop Now</a>
+                            <a href="{{route('landing.shop')}}" class="btn btn-style btn-outline-primary mt-4"><span class="fa fa-shopping-cart mr-1"></span> Shop Now</a>
                         </address>
                         </div>  
                     
