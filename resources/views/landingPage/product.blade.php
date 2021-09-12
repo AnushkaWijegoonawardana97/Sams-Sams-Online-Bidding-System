@@ -112,7 +112,7 @@
     </section>
 
     <section class="primary-ccontainer py-5">
-        <div class="">
+        <div class="container">
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
                     <a data-toggle="pill" class="nav-link active" href="#addtionalInfo">Additional Information</a>
@@ -121,7 +121,7 @@
                     <a data-toggle="pill" class="nav-link" href="#lastestBids">Latest Biddings</a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="pill" class="nav-link" href="#lastestBids">Reviews</a>
+                    <a data-toggle="pill" class="nav-link" href="#reviews">Reviews</a>
                 </li>
             </ul>
             
@@ -135,13 +135,16 @@
                 </div>
 
                 <div id="lastestBids" class="tab-pane fade">
-                    <div class="w-50 mx-auto">
+                    <div class="w-75 mx-auto">
                         <div class="row">
                             @foreach($allBids as $bid)
+                                @php
+                                    $buyer_name = App\Buyer::where('id', $bid->buyer_id)->get();
+                                @endphp
                                 <div class="col-md-6 mb-2">
-                                    <div class="alert alert-primary" role="alert">
+                                    <div class="alert @if($productbids <= $bid->bid_price) alert-success @else alert-warning @endif" role="alert">
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <span class="mb-0"><strong>Buyer Name</strong></span>
+                                            <span class="mb-0"><strong>{{$buyer_name[0]->first_name}} {{$buyer_name[0]->last_name}}</strong></span>
                                             <sapn class="mb-0 font-italic">{{$bid->bid_price}} LKR</sa>
                                         </div>
                                         <span class="mb-0">{{ \Carbon\Carbon::parse($bid->created_at)->diffForHumans() }}</span>
@@ -152,7 +155,7 @@
                     </div>
                 </div>
 
-                <div id="lastestBids" class="tab-pane fade">
+                <div id="reviews" class="tab-pane fade">
                     <h3>Menu 2</h3>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                 </div>
