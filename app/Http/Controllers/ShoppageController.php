@@ -22,15 +22,16 @@ class ShoppageController extends Controller
         $product = Product::where('product_name', str_replace('-', ' ', $product_name))->get();
         $category = ProductCategory::find($product[0]->category_id);
         $productbids = ProductBids::where('product_id', $product[0]->id)->max("bid_price");
-        $products = Product::all()->sortByDesc('created_at');
+        $products = Product::where('category_id', $product[0]->category_id)->take(4)->get();
         $allBids = ProductBids::where('product_id', $product[0]->id)->get();
-        
+        $productbidslist = ProductBids::all()->sortByDesc('created_at');
+
         $date1 = Carbon::parse($product[0]->bid_ending_date);
         $date2 = Carbon::now();
         $bidends = $date1->diffForHumans($date2);
 
         if($product) {
-            return view('landingPage.product')->with('product',$product[0])->with('bidends', $bidends)->with('category', $category)->with('products', $products)->with('productbids', $productbids)->with("allBids", $allBids);
+            return view('landingPage.product')->with('product',$product[0])->with('bidends', $bidends)->with('category', $category)->with('products', $products)->with('productbids', $productbids)->with("allBids", $allBids)->with('productbidslist', $productbidslist);
         }
     }
 }

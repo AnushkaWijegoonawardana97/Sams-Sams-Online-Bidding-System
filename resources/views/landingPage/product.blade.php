@@ -156,8 +156,13 @@
                 </div>
 
                 <div id="reviews" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    <div class="w-75 mx-auto">
+                        <!-- <div class="card">
+                            <div class="card-body">
+                                This is some text within a card body.
+                            </div>
+                        </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,24 +183,52 @@
                     <!-- Product Card -->
                     <div class="product-card" id="product-card">
                         <div class="product-card-icons">
-                            <a href="#" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
-                            <a href="#" class="pci-bid-fav d-flex align-items-center justify-content-center"><i class="fas fa-heart"></i></a>
+                            <a href="{{route('landing.product', str_replace(' ', '-', $product->product_name))}}" class="pci-bid-now d-flex align-items-center justify-content-center"><i class="fas fa-gavel"></i></a>
                         </div>
 
-                        <a href="{{route('landing.product', $product->id)}}">
+                        <a href="{{route('landing.product', str_replace(' ', '-', $product->product_name))}}">
                             <div class="product-card-img">
-                                <img src="{{asset('img/product-img.jpg')}}" alt="" width="300" height="300">
+                                @if($product->product_images)
+                                    @php
+                                        $prodImages = explode('|', $product->product_images);
+                                    @endphp
+                                @endif
+                                <img src="{{asset($prodImages[0])}}" alt="{{$product->product_name}}" width="300" height="300">
 
-                                <div class="bid-ends d-flex align-items-center justify-content-center">
-                                    {{$product->bid_ending_date}}
-                                </div>
+                                @if(strpos(\Carbon\Carbon::parse($product->bid_ending_date)->diffForHumans(), "hours"))
+                                    <div class="bid-ends text-center font-weight-bold text-warning"><i class="fas fa-clock mr-2"></i>
+                                        {{ \Carbon\Carbon::parse($product->bid_ending_date)->diffForHumans() }}
+                                    </div>
+                                @elseif(strpos(\Carbon\Carbon::parse($product->bid_ending_date)->diffForHumans(), "minutes"))
+                                    <div class="bid-ends text-center font-weight-bold text-danger"><i class="fas fa-clock mr-2"></i>
+                                        {{ \Carbon\Carbon::parse($product->bid_ending_date)->diffForHumans() }}
+                                    </div>
+                                @else
+                                    <div class="bid-ends text-center font-weight-bold text-primary"><i class="fas fa-clock mr-2"></i>
+                                        {{ \Carbon\Carbon::parse($product->bid_ending_date)->diffForHumans() }}
+                                    </div>
+                                @endif
                             </div>
                         </a>
 
                         <div class="prdouct-card-content">
-                            <a href="#" class="product-title">{{str_limit($product->product_name, 20)}}</a>
-                            <div class="product-bid">
-                                Current Bid : <span class="bid-amount">{{$product->starting_bid_price}}</span>
+                            <a href="{{route('landing.product', str_replace(' ', '-', $product->product_name))}}" class="product-title">{{$product->product_name}}</a>
+                            @php
+                                $productBidarray = array();
+                                foreach($productbidslist as $productbid)  {
+                                    if($product->id == $productbid->product_id) {
+                                        $productBidarray[] = $productbid->bid_price;
+                                    }
+                                }
+
+                                if(count($productBidarray) != 0) {
+                                    $maxbid = max($productBidarray);
+                                }else {
+                                    $maxbid = "";
+                                }
+                            @endphp
+                            <div class="product-bid mt-3">
+                                Current Bid : <span class="bid-amount">@if($maxbid) {{$maxbid}} @else {{$product->starting_bid_price}} @endif LKR</span>
                             </div>
                         </div>
                     </div>
