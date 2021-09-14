@@ -107,10 +107,13 @@
                 <button class="btn btn-theme-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Categories
                 </button>
+                @php
+                    $categories = App\ProductCategory::all()->sortByDesc('created_at');
+                @endphp
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Electronic</a>
-                    <a class="dropdown-item" href="#">Vehicles</a>
-                    <a class="dropdown-item" href="#">Services</a>
+                    @foreach($categories as $category)
+                        <a class="dropdown-item" href="#">{{$category->category_name}}</a>
+                    @endforeach
                 </div>
             </div>
 
@@ -124,10 +127,6 @@
 
             <!-- Cart Icons -->
             <div class="navbar-icon-group d-flex">
-                <a href="" class="icon-wishlist icon-item">
-                    <span class="icon"><i class="fas fa-heart"></i></span>
-                    <span class="badge badge-pill">0</span>
-                </a>
 
                 <a href="" class="icon-cart icon-item">
                     <span class="icon"><i class="fas fa-shopping-cart"></i></span>

@@ -52,7 +52,12 @@
             <div class="footer-column-header">Browse Retails</div>
 
             <div class="footer-column-links d-flex flex-column">
-            <a href="" class="footer-link-item">* Add Categories</a>
+            @php
+                $categories = App\ProductCategory::all()->sortByDesc('created_at')->take(5);
+            @endphp
+            @foreach($categories as $category)
+            <a href="" class="footer-link-item">{{$category->category_name}}</a>
+            @endforeach
                 
             </div>
         </div>

@@ -48,7 +48,11 @@
                                     }
                                 }
 
-                                $maxbid = max($productBidarray);
+                                if(count($productBidarray) != 0) {
+                                    $maxbid = max($productBidarray);
+                                }else {
+                                    $maxbid = "";
+                                }
                             @endphp
                             <div class="product-bid mt-3">
                                 Current Bid : <span class="bid-amount">@if($maxbid) {{$maxbid}} @else {{$product->starting_bid_price}} @endif LKR</span>

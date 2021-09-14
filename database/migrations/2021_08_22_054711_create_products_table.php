@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->text('special_product_notes')->nullable();    
             $table->string('product_images')->nullable();    
             $table->string('inspection_video')->nullable();    
+            $table->boolean('is_featured')->nullable();    
             $table->string('status');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('product_categories');
