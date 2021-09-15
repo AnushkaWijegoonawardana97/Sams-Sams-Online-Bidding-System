@@ -30,14 +30,17 @@ Route::post('createSeller', 'AuthPageController@createSeller')->name('auth.creat
 Route::post('createBuyer', 'AuthPageController@createBuyer')->name('auth.createBuyer');
 
 // Shop Routes
-Route::get('checkout', 'LandingPageController@checkoutPage')->name('landing.checkout');
 Route::get('thankyou', 'LandingPageController@thankYouPage')->name('landing.thankyou');
 
 Route::group(['prefix' => 'shop'], function () {
     Route::get('/', 'ShoppageController@shopPage')->name('landing.shop');
     Route::get('/{product_name}', 'ShoppageController@productPage')->name('landing.product');
     Route::get('/category/{category_name}', 'ShoppageController@categoryShopPage')->name('landing.categoryShop');
+    Route::get('/checkout/{id}', 'ShoppageController@checkoutPage')->name('landing.checkout');
 });
+
+// Frontend UI Actions Routes
+Route::put('/inspectionupdate/{id}', 'UiActionController@updateinspections')->name('productinspection.update');
 
 
 //admin routes
