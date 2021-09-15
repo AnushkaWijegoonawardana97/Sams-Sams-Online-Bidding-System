@@ -1,6 +1,17 @@
 @extends('landingPage.layouts.master')
 
 @section('content')
+    @if(Session::has('message'))
+    <div class="primary-ccontainer">
+        <div class="alert alert-dismissible fade show {{Session::get('class')}}" role="alert">
+            <strong>{{Session::get('message')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    @endif
+
     <section class="primary-ccontainer my-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -10,7 +21,7 @@
             </ol>
         </nav>
     </section>
-    
+
     <section class="primary-ccontainer">
         <div class="row">
             <div class="col-md-6">
@@ -80,7 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn btn-primary btn-block">Confirm Your Bid</button>
+                                        <a href="{{route('landing.checkout', $product->id)}}" class="btn btn-primary btn-block">Confirm Your Bid</a>
                                     </div>  
                                 </div>
                             @endhasanyrole
@@ -117,12 +128,19 @@
                 <li class="nav-item">
                     <a data-toggle="pill" class="nav-link active" href="#addtionalInfo">Additional Information</a>
                 </li>
-                <li class="nav-item">
-                    <a data-toggle="pill" class="nav-link" href="#lastestBids">Latest Biddings</a>
-                </li>
-                <li class="nav-item">
+                @if(!count($allBids) == 0)
+                    <li class="nav-item">
+                        <a data-toggle="pill" class="nav-link" href="#lastestBids">Latest Biddings</a>
+                    </li>
+                @endif
+                @if(!count($productinspections) == 0)
+                    <li class="nav-item">
+                        <a data-toggle="pill" class="nav-link" href="#inspections">Inspection Schedule</a>
+                    </li>
+                @endif
+                <!-- <li class="nav-item">
                     <a data-toggle="pill" class="nav-link" href="#reviews">Reviews</a>
-                </li>
+                </li> -->
             </ul>
             
             <div class="tab-content pt-5 pb-3">
@@ -134,36 +152,68 @@
                     @endif
                 </div>
 
-                <div id="lastestBids" class="tab-pane fade">
-                    <div class="w-75 mx-auto">
-                        <div class="row">
-                            @foreach($allBids as $bid)
-                                @php
-                                    $buyer_name = App\Buyer::where('id', $bid->buyer_id)->get();
-                                @endphp
-                                <div class="col-md-6 mb-2">
-                                    <div class="alert @if($productbids <= $bid->bid_price) alert-success @else alert-warning @endif" role="alert">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <span class="mb-0"><strong>{{$buyer_name[0]->first_name}} {{$buyer_name[0]->last_name}}</strong></span>
-                                            <sapn class="mb-0 font-italic">{{$bid->bid_price}} LKR</sa>
+                @if(!count($allBids) == 0)
+                    <div id="lastestBids" class="tab-pane fade">
+                        <div class="w-75 mx-auto">
+                            <div class="row">
+                                @foreach($allBids as $bid)
+                                    @php
+                                        $buyer_name = App\Buyer::where('id', $bid->buyer_id)->get();
+                                    @endphp
+                                    <div class="col-md-6 mb-2">
+                                        <div class="alert @if($productbids <= $bid->bid_price) alert-success @else alert-warning @endif" role="alert">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <span class="mb-0"><strong>{{$buyer_name[0]->first_name}} {{$buyer_name[0]->last_name}}</strong></span>
+                                                <sapn class="mb-0 font-italic">{{$bid->bid_price}} LKR</sa>
+                                            </div>
+                                            <span class="mb-0">{{ \Carbon\Carbon::parse($bid->created_at)->diffForHumans() }}</span>
                                         </div>
-                                        <span class="mb-0">{{ \Carbon\Carbon::parse($bid->created_at)->diffForHumans() }}</span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                @if(!count($productinspections) == 0)
+                    <div id="inspections" class="tab-pane fade">
+                        <div class="w-75 mx-auto">
+                            @foreach($productinspections as $productinspection)
+                                <div class="card mb-2">
+                                    <div class="card-body d-flex align-items-center justify-content-between">
+                                        <div class="d-flex flex-column">
+                                            <div>
+                                                <i class="fas fa-clock mr-3"></i> From <span class="font-italic">{{$productinspection->inspection_start_time}}</span> to <span class="font-italic">{{$productinspection->inspection_end_time}}</span>
+                                            </div>
+                                            <div><i class="fas fa-map-marker-alt mr-3"></i> {{$productinspection->inspection_address}}</div>
+                                            <div><i class="fas fa-sticky-note mr-3"></i> {{$productinspection->inspection_notes}}</div>
+                                        </div>
+
+                                        @hasanyrole('buyer')
+                                            @php
+                                                $id = Auth::id();
+                                                $buyer_id = App\Buyer::where('user_id', $id)->get();
+                                            @endphp
+                                            <form id="quickForm" novalidate="novalidate" action="{{ route('productinspection.update', $productinspection->id) }}" method="POST">
+                                                @csrf
+                                                {{ method_field('put') }}
+                                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                                <input type="hidden" name="inspection_status" value="Booked">
+                                                <input type="hidden" name="buyer_id" value="{{$buyer_id[0]->id}}">
+                                                <button type="submit" class="btn btn-secondary">Confirm Booking</button>
+                                            </form>
+                                        @endhasanyrole
                                     </div>
                                 </div>
                             @endforeach
                         </div>
                     </div>
-                </div>
+                @endif
 
-                <div id="reviews" class="tab-pane fade">
+                <!-- <div id="reviews" class="tab-pane fade">
                     <div class="w-75 mx-auto">
-                        <!-- <div class="card">
-                            <div class="card-body">
-                                This is some text within a card body.
-                            </div>
-                        </div> -->
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

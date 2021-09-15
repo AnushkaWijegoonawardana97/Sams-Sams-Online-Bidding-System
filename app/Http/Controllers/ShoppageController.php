@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductBids;
 use App\ProductCategory;
+use App\ProductInspections;
 use Carbon\Carbon;
 
 class ShoppageController extends Controller
@@ -32,15 +33,19 @@ class ShoppageController extends Controller
         $products = Product::where('category_id', $product[0]->category_id)->take(4)->get();
         $allBids = ProductBids::where('product_id', $product[0]->id)->get();
         $productbidslist = ProductBids::all()->sortByDesc('created_at');
+        $productinspections = ProductInspections::where('product_id', $product[0]->id)->where('inspection_status', "Not Booked")->get();
 
         $date1 = Carbon::parse($product[0]->bid_ending_date);
         $date2 = Carbon::now();
         $bidends = $date1->diffForHumans($date2);
 
         if($product) {
-            return view('landingPage.product')->with('product',$product[0])->with('bidends', $bidends)->with('category', $category)->with('products', $products)->with('productbids', $productbids)->with("allBids", $allBids)->with('productbidslist', $productbidslist);
+            return view('landingPage.product')->with('product',$product[0])->with('bidends', $bidends)->with('category', $category)->with('products', $products)->with('productbids', $productbids)->with("allBids", $allBids)->with('productbidslist', $productbidslist)->with('productinspections', $productinspections);
         }
     }
 
-    
+    public function checkoutPage($id)
+    {
+        return view('landingPage.checkout');
+    }
 }

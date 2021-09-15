@@ -48,12 +48,6 @@ class LandingPageController extends Controller
     {
         return view('landingPage.faq');
     }
-    
-
-     public function checkoutPage()
-    {
-        return view('landingPage.checkout');
-    }
 
      public function thankYouPage()
     {
