@@ -18,6 +18,13 @@ class ShoppageController extends Controller
         return view('landingPage.shop', compact('products', $products))->with('productbids', $productbids);
     }
 
+    public function categoryShopPage($category_name) {
+        $category = ProductCategory::where('category_name', str_replace('-', ' ', $category_name))->get();
+        $products = Product::where('category_id', $category[0]->id)->get();
+        $productbids = ProductBids::all()->sortByDesc('created_at');
+        return view('landingPage.categoryShop', compact('category', $category))->with('products', $products)->with('productbids', $productbids);
+    }
+
     public function productPage($product_name) {
         $product = Product::where('product_name', str_replace('-', ' ', $product_name))->get();
         $category = ProductCategory::find($product[0]->category_id);
@@ -34,4 +41,6 @@ class ShoppageController extends Controller
             return view('landingPage.product')->with('product',$product[0])->with('bidends', $bidends)->with('category', $category)->with('products', $products)->with('productbids', $productbids)->with("allBids", $allBids)->with('productbidslist', $productbidslist);
         }
     }
+
+    
 }

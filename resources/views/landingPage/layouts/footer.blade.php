@@ -56,7 +56,7 @@
                 $categories = App\ProductCategory::all()->sortByDesc('created_at')->take(5);
             @endphp
             @foreach($categories as $category)
-            <a href="" class="footer-link-item">{{$category->category_name}}</a>
+            <a href="{{route('landing.categoryShop', str_replace(' ', '-', strtolower($category->category_name)))}}" class="footer-link-item">{{$category->category_name}}</a>
             @endforeach
                 
             </div>

@@ -36,6 +36,7 @@ Route::get('thankyou', 'LandingPageController@thankYouPage')->name('landing.than
 Route::group(['prefix' => 'shop'], function () {
     Route::get('/', 'ShoppageController@shopPage')->name('landing.shop');
     Route::get('/{product_name}', 'ShoppageController@productPage')->name('landing.product');
+    Route::get('/category/{category_name}', 'ShoppageController@categoryShopPage')->name('landing.categoryShop');
 });
 
 

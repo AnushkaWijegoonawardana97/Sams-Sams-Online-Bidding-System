@@ -112,7 +112,7 @@
                 @endphp
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     @foreach($categories as $category)
-                        <a class="dropdown-item" href="#">{{$category->category_name}}</a>
+                        <a class="dropdown-item" href="{{route('landing.categoryShop', str_replace(' ', '-', strtolower($category->category_name)))}}">{{$category->category_name}}</a>
                     @endforeach
                 </div>
             </div>
