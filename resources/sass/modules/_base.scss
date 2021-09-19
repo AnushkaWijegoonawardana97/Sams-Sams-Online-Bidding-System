@@ -1,0 +1,114 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.mobile-only {
+    display: none;
+}
+@include respond-to(small) {
+    .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: block;
+    }
+}
+
+.btn,
+input {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+// <========== Section Header ==========>
+.section-header {
+    margin-bottom: 4rem;
+    h2 {
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 600;
+        color: $theme-ptcolor;
+    }
+
+    .header-sperator {
+        position: relative;
+        display: inline-block;
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 600;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 220px;
+            height: 2px;
+            background: $theme-ptcolor;
+            left: -240px;
+            top: 50%;
+            position: absolute;
+        }
+        &::after {
+            content: "";
+            display: block;
+            width: 220px;
+            height: 2px;
+            background: $theme-ptcolor;
+            right: -240px;
+            top: 50%;
+            position: absolute;
+        }
+    }
+}
+
+@include respond-to(small) {
+    .section-header {
+        margin-bottom: 2rem;
+        h2 {
+            font-size: 32px;
+            line-height: 40px;
+        }
+
+        .header-sperator {
+            font-size: 18px;
+            line-height: 18px;
+
+            &::before {
+                width: 120px;
+                height: 1px;
+                left: -140px;
+            }
+            &::after {
+                width: 120px;
+                height: 1px;
+                right: -140px;
+            }
+        }
+    }
+}
+
+// <========== Section Spacing & Containers ==========>
+.primary-ccontainer {
+    width: 90%;
+    margin: auto;
+}
+.primary-section-padding {
+    padding: 6rem 2rem;
+    &-notop {
+        padding-top: 0px;
+    }
+}
+
+@include respond-to(medium_lg) {
+    .primary-section-padding {
+        padding: 6rem 1rem;
+    }
+}
+@include respond-to(small) {
+    .primary-ccontainer {
+        width: 100%;
+    }
+    .primary-section-padding {
+        padding: 4rem 1rem;
+    }
+}

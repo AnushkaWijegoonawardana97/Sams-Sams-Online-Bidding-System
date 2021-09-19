@@ -1,0 +1,334 @@
+// <========== Page Header Navigation Styles ==========>
+#page-header-navcontainer {
+    background-color: $theme-lwhite;
+    padding-bottom: 1rem;
+}
+#page-header-navigation {
+    width: 90%;
+    margin: auto;
+    flex-flow: column;
+
+    .top-header-nav {
+        padding: 1rem;
+        width: 100%;
+
+        .navbar-brand {
+            margin-right: 2rem;
+        }
+
+        .navbar-nav {
+            .nav-item {
+                padding: 0px 1.25rem;
+
+                .nav-link {
+                    color: $theme-stcolor;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 500;
+                    &:hover {
+                        color: $theme-pblue;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .active {
+                .nav-link {
+                    color: $theme-pblue;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .logedin-dropdown {
+            .logedin-btn {
+                font-size: 16px;
+                line-height: 18px;
+                font-weight: 500;
+
+                .logedin-img {
+                    border-radius: 50px;
+                    margin-right: 1rem;
+                }
+
+                .logedin-text {
+                    margin-right: 0.75rem;
+                    text-transform: capitalize;
+                    color: $theme-pblue;
+                }
+            }
+            .dropdown-menu {
+                min-width: 220px;
+
+                .dropdown-item {
+                    min-width: 220px;
+
+                    color: $theme-stcolor;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 500;
+                    &:hover {
+                        color: $theme-pblue;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-header-nav {
+        padding: 1rem;
+        width: 100%;
+
+        .dropdown {
+            .btn-theme-primary {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            .dropdown-menu {
+                min-width: 220px;
+
+                .dropdown-item {
+                    min-width: 220px;
+
+                    color: $theme-stcolor;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 500;
+                    &:hover {
+                        color: $theme-pblue;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .search-bar {
+            width: 60%;
+            .form-control {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            .input-group-append {
+                .input-group-text {
+                    background-color: $theme-pblue;
+                    color: $theme-white;
+                    border: 1px solid $theme-pblue;
+                }
+            }
+        }
+
+        .navbar-icon-group {
+            .icon-item {
+                text-decoration: none;
+                color: $theme-stcolor;
+                font-size: 16px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0px 0.5rem;
+
+                .badge {
+                    padding: 8px;
+                    background-color: $theme-tblue;
+                    border-radius: 50px;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0px 0.25rem;
+                    font-weight: 400;
+                }
+            }
+
+            .cart-amount {
+                flex-direction: column;
+                font-size: 12px;
+                line-height: 18px;
+                .cart-text {
+                    font-weight: 400;
+                }
+
+                .cart-price {
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+@include respond-to(medium_lg) {
+    #page-header-navigation {
+        .top-header-nav {
+            padding: 1rem 0rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .navbar-brand {
+                margin-right: 2rem;
+            }
+
+            .navbar-nav {
+                display: none;
+            }
+        }
+
+        .bottom-header-nav {
+            padding: 1rem 0rem;
+
+            .search-bar {
+                width: 50%;
+            }
+        }
+    }
+}
+@include respond-to(small) {
+    #page-header-navigation {
+        width: 100%;
+
+        .top-header-nav {
+            padding: 0px;
+            width: 100%;
+            justify-content: space-between;
+
+            .mobile-opennav-button {
+                color: $theme-stcolor;
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 500;
+                &:hover {
+                    color: $theme-pblue;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .bottom-header-nav {
+            padding: 1rem 0px;
+            width: 100%;
+
+            .dropdown {
+                display: none;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .navbar-icon-group {
+                display: none !important;
+            }
+        }
+    }
+}
+
+// <========== Mobile Overlayer Navigation Styles ==========>
+#mobile-ovelayer-navigation {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $theme-white;
+    overflow-x: hidden;
+    transition: 0.5s;
+
+    .overlayer-navcontent {
+        text-align: center;
+        list-style-type: none;
+        padding: 0px;
+        width: 80%;
+
+        .nav-item {
+            padding: 0px 1.25rem;
+
+            .nav-link {
+                color: $theme-stcolor;
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 500;
+                &:hover {
+                    color: $theme-pblue;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .active {
+            .nav-link {
+                color: $theme-pblue;
+                font-weight: 700;
+            }
+        }
+
+        .navbar-icon-group {
+            margin-top: 1rem;
+            border-top: 1px solid $theme-ttcolor;
+            padding: 1rem 0px;
+            align-items: center;
+            justify-content: center;
+
+            .icon-item {
+                text-decoration: none;
+                color: $theme-stcolor;
+                font-size: 16px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0px 0.5rem;
+
+                .badge {
+                    padding: 8px;
+                    background-color: $theme-tblue;
+                    border-radius: 50px;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0px 0.25rem;
+                    font-weight: 400;
+                }
+            }
+
+            .cart-amount {
+                flex-direction: column;
+                font-size: 12px;
+                line-height: 18px;
+                .cart-text {
+                    font-weight: 400;
+                }
+
+                .cart-price {
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .mobile-closenav-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: $theme-stcolor;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 500;
+        &:hover {
+            color: $theme-pblue;
+            font-weight: 700;
+        }
+    }
+}

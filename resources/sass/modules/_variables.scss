@@ -1,0 +1,70 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+// <========== Theme Static Page Varibales ==========>
+// #061F3C
+$primary-color: #707070;
+$theme-white: #ffffff;
+$theme-lwhite: #fcfcfc;
+$theme-pblue: #0654ae;
+$theme-sblue: #0099ff;
+$theme-tblue: #b1d6eb;
+$theme-ptcolor: #262626;
+$theme-stcolor: #414141;
+$theme-ttcolor: #707070;
+$theme-ftcolor: #b2b2b2;
+$theme-porange: #ff9a01;
+
+// <========== Theme Media Query Varibales ==========>
+$breakpoints: (
+    "exsmall_320": (
+        max-width: 330px
+    ),
+    "exsmall": (
+        max-width: 375px
+    ),
+    "exsmall_574": (
+        max-width: 574px
+    ),
+    "small": (
+        max-width: 767px
+    ),
+    "medium": (
+        max-width: 991px
+    ),
+    "medium_lg": (
+        max-width: 1026px
+    ),
+    "large": (
+        max-width: 1199px
+    ),
+    "ex_large_max": (
+        max-width: 1440px
+    ),
+    "min1440px": (
+        min-width: 1440px
+    ),
+    "ex_large": (
+        max-width: 1920px
+    ),
+    "min768": (
+        min-width: 768px
+    )
+) !default;

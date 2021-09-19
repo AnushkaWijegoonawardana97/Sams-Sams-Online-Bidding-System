@@ -1,0 +1,26 @@
+// <========== Bootstrap ==========>
+@import "~bootstrap/scss/bootstrap";
+
+// <========== Google Fonts ==========>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// <========== Google Fonts ==========>
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// <========== Sass Modules ==========>
+@import "modules/variables";
+@import "modules/mixin";
+@import "modules/base";
+
+// <========== Sass Components ==========>
+@import "components/header";
+@import "components/buttons";
+@import "components/productcard";
+@import "components/filtercard";
+@import "components/footer";
+
+// <========== Sass Pages ==========>
+@import "pages/homepage";
+@import "pages/shoppage";
