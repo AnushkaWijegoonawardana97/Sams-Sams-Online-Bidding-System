@@ -49,8 +49,8 @@ class LandingPageController extends Controller
         return view('landingPage.faq');
     }
 
-     public function thankYouPage()
-    {
-        return view('landingPage.thankyou');
-    }
+    //  public function thankYouPage()
+    // {
+    //     return view('landingPage.thankyou');
+    // }
 }

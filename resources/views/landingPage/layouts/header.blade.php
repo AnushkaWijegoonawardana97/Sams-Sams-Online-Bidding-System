@@ -22,22 +22,41 @@
         </li>
 
         <!-- Cart Icons -->
-        <li class="navbar-icon-group d-flex">
-            <a href="" class="icon-wishlist icon-item">
-                <span class="icon"><i class="fas fa-heart"></i></span>
-                <span class="badge badge-pill">0</span>
-            </a>
+        @if(Auth::check())
+            <li class="navbar-icon-group d-flex">
+                <a href="" class="icon-wishlist icon-item">
+                    <span class="icon"><i class="fas fa-heart"></i></span>
+                    <span class="badge badge-pill">lol</span>
+                </a>
 
-            <a href="" class="icon-cart icon-item">
-                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-                <span class="badge badge-pill">10</span>
-            </a>
+                <a href="" class="icon-cart icon-item">
+                    <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="badge badge-pill">10</span>
+                </a>
 
-            <div class="cart-amount d-flex">
-                <span class="cart-text">Your cart</span>
-                <span class="cart-price">$0.00</span>
-            </div>
-        </li>
+                <div class="cart-amount d-flex">
+                    <span class="cart-text">Your cart</span>
+                    <span class="cart-price">$0.00</span>
+                </div>
+            </li>
+        @else
+            <li class="navbar-icon-group d-flex">
+                <a href="" class="icon-wishlist icon-item">
+                    <span class="icon"><i class="fas fa-heart"></i></span>
+                    <span class="badge badge-pill">0</span>
+                </a>
+
+                <a href="" class="icon-cart icon-item">
+                    <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="badge badge-pill">10</span>
+                </a>
+
+                <div class="cart-amount d-flex">
+                    <span class="cart-text">Your cart</span>
+                    <span class="cart-price">$0.00</span>
+                </div>
+            </li>
+        @endif
     </ul>
 </section>
 
@@ -126,18 +145,39 @@
             </div>
 
             <!-- Cart Icons -->
-            <div class="navbar-icon-group d-flex">
+            @if(Auth::check())
+                <div class="navbar-icon-group d-flex">
+                    @php
+                        $user_id = Auth::user();
+                        $buyer = App\Buyer::where('user_id', $user_id->id)->get();
+                        $buyer_id = $buyer[0]->id;
 
-                <a href="" class="icon-cart icon-item">
-                    <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-                    <span class="badge badge-pill">10</span>
-                </a>
+                        $cart = App\Cart::where('buyer_id', $buyer_id)->get();
+                    @endphp
+                    <a href="" class="icon-cart icon-item">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="badge badge-pill">{{$cart->count()}}</span>
+                    </a>
 
-                <div class="cart-amount d-flex">
-                    <span class="cart-text">Your cart</span>
-                    <span class="cart-price">$0.00</span>
+                    <div class="cart-amount d-flex">
+                        <span class="cart-text">Your cart</span>
+                        <span class="cart-price">{{$cart->sum('bid_price')}}.00 LKR</span>
+                    </div>
                 </div>
-            </div>
+            @else
+                <div class="navbar-icon-group d-flex">
+
+                    <a href="" class="icon-cart icon-item">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="badge badge-pill">10</span>
+                    </a>
+
+                    <div class="cart-amount d-flex">
+                        <span class="cart-text">Your cart</span>
+                        <span class="cart-price">$0.00</span>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </header>
