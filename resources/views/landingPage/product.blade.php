@@ -1,5 +1,5 @@
 @extends('landingPage.layouts.master')
-
+@section('title', "{$product->product_name} - SAMS & SAMS")
 @section('content')
     @if(Session::has('message'))
     <div class="primary-ccontainer">
@@ -37,7 +37,7 @@
                             @endphp
                             @foreach($prodImages as $key=>$value)
                                 <div class="carousel-item @if($key === 0) active @endif">
-                                    <img class="d-block w-100 product-image" width="500" src="{{asset($value)}}" alt="{{$product->product_name}}">
+                                    <img class="d-block w-100 product-image" height="600" style="object-fit: contain;" src="{{asset($value)}}" alt="{{$product->product_name}}">
                                 </div>
                             @endforeach
                         @endif
@@ -68,7 +68,7 @@
                     <div>
                         @if(Auth::check()) 
                             @hasanyrole('buyer')
-                                <div class="form-row mx-auto" id="createaBidForm" novalidate="novalidate" action="{{ route('product_bids.store') }}" method="POST">
+                                <form class="form-row mx-auto" id="createaBidForm" novalidate="novalidate" action="{{route('landing.checkout', $product->id)}}" method="POST">
                                     @csrf
                                     <div class="col-md-3"><p class="lead">Make Your Bid</p></div>
                                     <div class="input-group mb-3 col-md-5">
@@ -83,17 +83,23 @@
                                             } else {
                                                 $bidValue = $product->starting_bid_price;
                                             }
+                                            $user_id = Auth::user();
+                                            $buyer = App\Buyer::where('user_id', $user_id->id)->get();
+                                            $buyer_id = $buyer[0]->id;
                                         @endphp
-                                        
-                                        <input type="number" id="currentBidValue" class="form-control text-center" min="{{$bidValue}}" value="{{$bidValue}}" step="{{$product->min_bid_price}}">
+
+                                        <input type="number" id="currentBidValue" class="form-control text-center" min="{{$bidValue}}" value="{{$bidValue}}" step="{{$product->min_bid_price}}" name="bid_price">
+                                        <input type="hidden" name="buyer_id" value="{{$buyer_id}}">
+                                        <input type="hidden" name="product_id" value="{{$product->id}}">
                                         <div class="input-group-append">
-                                            <button id="addPrice" class="btn btn-outline-secondary" type="button"><i class="fas fa-plus"></i></button>
+                                            <button id="addPrice" class="btn btn-outline-secondary" type="submit"><i class="fas fa-plus"></i></button>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <a href="{{route('landing.checkout', $product->id)}}" class="btn btn-primary btn-block">Confirm Your Bid</a>
+                                        <!-- <a href="{{route('landing.checkout', $product->id)}}" class="btn btn-primary btn-block" id="checkoutBtn">Confirm Your Bid</a> -->
+                                        <button type="submit" class="btn btn-primary btn-block" id="checkoutBtn">Confirm Your Bid</button>
                                     </div>  
-                                </div>
+                                </form>
                             @endhasanyrole
                             @hasanyrole('seller')
                                 <div class="mx-auto text-center">
@@ -290,21 +296,35 @@
 
 @section('additional-scripts')
     <script>
+        // Increase & decreas the bid value
         var minBidPrice = {!! json_encode($product->min_bid_price) !!};
         var currentHighest = parseInt(document.getElementById('currentBidValue').value);
 
-        document.getElementById("addPrice").addEventListener("click", () => {
+        if(currentHighest >= parseInt(document.getElementById('currentBidValue').value)) {
+            document.getElementById("minusPrice").disabled = true;
+            document.getElementById("checkoutBtn").classList.add('disabled')
+        }
+
+        document.getElementById("addPrice").addEventListener("click", (e) => {
+            e.preventDefault();
             var value = parseInt(document.getElementById('currentBidValue').value);
             value = isNaN(value) ? 0 : value;
             value = value + parseInt(minBidPrice);
             document.getElementById('currentBidValue').value = value;
+
+            document.getElementById("minusPrice").disabled = false;
+            document.getElementById("checkoutBtn").classList.remove('disabled')
         })
-        document.getElementById("minusPrice").addEventListener("click", () => {
+
+        document.getElementById("minusPrice").addEventListener("click", (e) => {
+            e.preventDefault();
             var value = parseInt(document.getElementById('currentBidValue').value);
             value = isNaN(value) ? 0 : value;
             value = value - parseInt(minBidPrice);
 
-            if(currentHighest > value) {
+            if(currentHighest >= value) {
+                document.getElementById("minusPrice").disabled = true;
+                document.getElementById("checkoutBtn").classList.add('disabled')
             } else {
                 document.getElementById('currentBidValue').value = value;
             }
