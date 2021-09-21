@@ -12,6 +12,7 @@ use App\Buyer;
 use App\BuyerAddress;
 use App\DeliveryDetails;
 use Auth;
+use Carbon\Carbon;
 use Spatie\Activitylog\Contracts\Activity;
 
 
@@ -100,5 +101,19 @@ class ShoppageController extends Controller
         activity('New Delivery Details Created')->performedOn($delivery_details)->log('New Delivery Details Created - User Activity');
 
         return redirect(route('landing.cart'))->with('bid_price', $request->bid_price)->with('product', $request->product_name);
+    }
+
+    public function deleteBid($id) {
+        $productbid = ProductBids::find($id);
+        $delivery_details = DeliveryDetails::where('bid_id', $productbid->id)->get();
+
+        if($productbid) {
+            $productbid->delete();
+            if($delivery_details) {
+                $delivery_details[0]->delete();
+            }
+            activity('Product Bid Cancled')->performedOn($productbid)->log('Product bid has been cancled - User Activity');
+            return redirect(route('landing.cart'))->with('message', 'Product bid has been cancled successfully !')->with('class', 'alert-warning');
+        }
     }
 }

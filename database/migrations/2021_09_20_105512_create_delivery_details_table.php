@@ -23,7 +23,7 @@ class CreateDeliveryDetailsTable extends Migration
             $table->string('address_type');
             $table->string('delivery_charges');
             $table->unsignedBigInteger('bid_id');
-            $table->foreign('bid_id')->references('id')->on('product_bids');
+            $table->foreign('bid_id')->references('id')->on('product_bids')->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedBigInteger('buyer_id');

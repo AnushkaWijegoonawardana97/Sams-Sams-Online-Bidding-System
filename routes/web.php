@@ -43,6 +43,7 @@ Route::get('thankyou', 'LandingPageController@thankYouPage')->name('landing.than
 // Frontend UI Actions Routes
 Route::put('/inspectionupdate/{id}', 'UiActionController@updateinspections')->name('productinspection.update');
 Route::post('/product-bids', 'ShoppageController@createBids')->name('productbid.create');
+Route::delete('/delete-bid/{id}', 'ShoppageController@deleteBid')->name('productbid.delete');
 
 
 

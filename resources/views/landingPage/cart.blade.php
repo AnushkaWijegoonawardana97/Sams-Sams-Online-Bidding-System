@@ -23,21 +23,28 @@
             <div class="card-body">
                 @php
                     $product = App\Product::find($productbid->product_id);
+                    $deliveryDetails = App\DeliveryDetails::where('bid_id', $productbid->id)->get();
                 @endphp
                 <h5 class="card-title">{{$product->product_name}}</h5>
-
-                <p class="card-text"><span class="text-muted font-weight-bold">Shipping Address: </span>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            
+                <p class="card-text"><span class="text-muted font-weight-bold">Shipping Address: </span>{{$deliveryDetails[0]->address_line1}} {{$deliveryDetails[0]->address_line2}} {{$deliveryDetails[0]->city}} {{$deliveryDetails[0]->district}} {{$deliveryDetails[0]->zip_code}}</p>
 
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex align-items-center justif-content-between">
-                        
+                        <span class="font-weight-bold mr-2">Bidding Amount : </span> {{$productbid->bid_price}}.00 LKR
                     </li>
-                    <li class="list-group-item d-flex align-items-center justif-content-between">A second item</li>
-                    <li class="list-group-item d-flex align-items-center justif-content-between">A third item</li>
                 </ul>
 
                 <div class="d-flex align-items-center justify-content-end">
-                    <a href="#" class="card-link text-danger">Cancle My Bid</a>
+                    <form action="{{ route('productbid.delete', $productbid->id) }}" method="post">
+                        @csrf
+                        {{ method_field('delete') }}
+                        <button class="btn btn-danger btn-sm" type="submit">
+                            <i class="fas fa-trash">
+                        </i>
+                        Cancle My Bid
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
