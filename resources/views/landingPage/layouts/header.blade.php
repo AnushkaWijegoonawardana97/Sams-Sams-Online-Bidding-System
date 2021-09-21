@@ -98,9 +98,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <!-- <a class="dropdown-item" href="#">Profile</a> -->
+                        <a class="dropdown-item" href="{{ route('password.request') }}">Account Settings</a>
                         <div class="dropdown-divider"></div>
+                        @hasanyrole('seller')
+                            <a class="dropdown-item" href="{{route('admin.dashboard')}}">Seller Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                        @endhasanyrole
                         @hasanyrole('super_admin')
                             <a class="dropdown-item" href="{{route('admin.dashboard')}}">Admin Dashboard</a>
                             <div class="dropdown-divider"></div>
@@ -146,24 +150,26 @@
 
             <!-- Cart Icons -->
             @if(Auth::check())
-                <div class="navbar-icon-group d-flex">
-                    @php
-                        $user_id = Auth::user();
-                        $buyer = App\Buyer::where('user_id', $user_id->id)->get();
-                        $buyer_id = $buyer[0]->id;
+                @hasanyrole('buyer')
+                    <div class="navbar-icon-group d-flex">
+                        @php
+                            $user_id = Auth::user();
+                            $buyer = App\Buyer::where('user_id', $user_id->id)->get();
+                            $buyer_id = $buyer[0]->id;
 
-                        $cart = App\Cart::where('buyer_id', $buyer_id)->get();
-                    @endphp
-                    <a href="" class="icon-cart icon-item">
-                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-                        <span class="badge badge-pill">{{$cart->count()}}</span>
-                    </a>
+                            $cart = App\Cart::where('buyer_id', $buyer_id)->get();
+                        @endphp
+                        <a href="" class="icon-cart icon-item">
+                            <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                            <span class="badge badge-pill">{{$cart->count()}}</span>
+                        </a>
 
-                    <div class="cart-amount d-flex">
-                        <span class="cart-text">Your cart</span>
-                        <span class="cart-price">{{$cart->sum('bid_price')}}.00 LKR</span>
+                        <div class="cart-amount d-flex">
+                            <span class="cart-text">Your cart</span>
+                            <span class="cart-price">{{$cart->sum('bid_price')}}.00 LKR</span>
+                        </div>
                     </div>
-                </div>
+                @endhasanyrole
             @else
                 <div class="navbar-icon-group d-flex">
 

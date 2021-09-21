@@ -19,6 +19,7 @@ Route::get('contact', 'LandingPageController@contactPage')->name('landing.contac
 Route::get('terms-conditions', 'LandingPageController@termsPage')->name('landing.terms');
 Route::get('guide', 'LandingPageController@guidePage')->name('landing.guide');
 Route::get('faq', 'LandingPageController@faqPage')->name('landing.faq');
+Route::get('account-settings', 'LandingPageController@accountSettings')->name('landing.accountSettings');
 
 Auth::routes();
 Route::get('registration', 'AuthPageController@register')->name('auth.register');
@@ -102,13 +103,28 @@ Route::group(['middleware' => 'auth'], function () {
             Route::delete('/delete/{id}', 'Admin\DeliveryController@delete')->name('delivery.delete');
         });
     });
-});
 
-//admin routes
-Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'seller'], function () {
-
         Route::get('dashboard', "Seller\DashboardController@dashboard")->name('seller.dashboard');
 
+        Route::group(['prefix' => 'products'], function () {
+            Route::get('/', 'Seller\ProductController@index')->name('sproduct.index');
+            Route::get('/create', 'Seller\ProductController@create')->name('sproduct.create');
+            Route::post('/store', 'Seller\ProductController@store')->name('sproduct.store');
+            Route::get('/view/{id}', 'Seller\ProductController@show')->name('sproduct.show');
+            Route::get('/edit/{id}', 'Seller\ProductController@edit')->name('sproduct.edit');
+            Route::put('/update/{id}', 'Seller\ProductController@update')->name('sproduct.update');
+            Route::delete('/delete/{id}', 'Seller\ProductController@delete')->name('sproduct.delete');
+        });
+
+        Route::group(['prefix' => 'product-inspections'], function () {
+            Route::get('/', 'Seller\ProductInspectionController@index')->name('sproduct_inspection.index');
+            Route::get('/create', 'Seller\ProductInspectionController@create')->name('sproduct_inspection.create');
+            Route::post('/store', 'Seller\ProductInspectionController@store')->name('sproduct_inspection.store');
+            Route::get('/edit/{id}', 'Seller\ProductInspectionController@show')->name('sproduct_inspection.show');
+            Route::put('/update/{id}', 'Seller\ProductInspectionController@update')->name('sproduct_inspection.update');
+            Route::delete('/delete/{id}', 'Seller\ProductInspectionController@delete')->name('sproduct_inspection.delete');
+        });
     });
 });
+

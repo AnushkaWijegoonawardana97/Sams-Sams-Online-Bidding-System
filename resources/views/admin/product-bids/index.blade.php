@@ -52,8 +52,8 @@
                                 <th style="width: 10%">
                                     Buyer Name
                                 </th>
-                                <th style="width: 20%">
-                                </th>
+                                <!-- <th style="width: 20%">
+                                </th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -90,7 +90,8 @@
                                             {{$buyer[0]->first_name. " " . $buyer[0]->last_name}} 
                                         </td>
 
-                                        <td class="project-actions text-right d-flex align-items-center justify-content-center">
+
+                                        <!-- <td class="project-actions text-right d-flex align-items-center justify-content-center">
                                             <form action="{{ route('product_bids.delete', $productbid->id) }}" method="post">
                                                 @csrf
                                                 {{ method_field('delete') }}
@@ -100,7 +101,7 @@
                                                 Cancle Bid
                                                 </button>
                                             </form>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                 @endif
                             @endforeach
